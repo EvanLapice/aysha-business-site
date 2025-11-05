@@ -1,438 +1,99 @@
 <!doctype html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Work From Anywhere — Opportunity</title>
+
   <style>
-    /* ===== Brand Controls ===== */
-    :root {
-      --brand-bg: #0a0a0a;
-      --brand-text: #ffffff;
-      --brand-accent: #a020f0;
-      --brand-accent-2: #ff2e7e;
-      --muted: #b4b4b4;
-      --card: #101014;
-      --white: #ffffff;
-      --shadow: 0 10px 25px rgba(0, 0, 0, .35);
-      --radius: 18px;
+    :root{
+      --brand-bg:#0a0a0a; --brand-text:#ffffff; --brand-accent:#a020f0; --brand-accent-2:#ff2e7e;
+      --muted:#b4b4b4; --card:#101014; --white:#ffffff; --shadow:0 10px 25px rgba(0,0,0,.35); --radius:18px;
+    }
+    html,body{margin:0;background:var(--brand-bg);color:var(--brand-text);
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Arial;}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;height:auto;display:block}
+    .container{max-width:1150px;margin:0 auto;padding:0 20px}
+    .pill{display:inline-flex;align-items:center;gap:.5rem;padding:.5rem 1rem;border-radius:999px;font-weight:700;letter-spacing:.02em}
+
+    /* Ribbon */
+    .ribbon{background:linear-gradient(90deg,var(--brand-accent),var(--brand-accent-2));color:#fff;font-weight:800;
+      text-transform:uppercase;font-size:.9rem;letter-spacing:.2em;display:flex;justify-content:center;align-items:center;padding:14px 0;}
+    .ribbon ul{list-style:none;margin:0;padding:0;display:flex;justify-content:center;align-items:center;gap:80px}
+    .ribbon li{display:flex;align-items:center;gap:8px;font-size:.9rem}
+
+    /* Hero */
+    .hero{padding:64px 0 24px}
+    .hero-grid{display:grid;grid-template-columns:minmax(320px,720px) 1fr;gap:36px;align-items:center}
+    .hero-grid>:first-child{justify-self:center;text-align:center}
+    .headline{font-size:clamp(2rem,5vw,3.5rem);font-weight:900;line-height:1.05;margin:0;text-wrap:balance}
+    .headline em{font-style:normal;color:var(--brand-accent)}
+    .pill{margin-inline:auto}
+    .sub{color:var(--muted);max-width:56ch;font-size:1.05rem;margin:14px auto 0}
+    .video-card{background:#0f0f13;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);margin:20px auto 0}
+    .video-card iframe{width:100%;aspect-ratio:16/9;border:0}
+
+    /* Buttons */
+    .btn{border:none;cursor:pointer;border-radius:999px;padding:14px 22px;font-weight:800;letter-spacing:.02em;
+      text-transform:uppercase;transition:all .25s ease}
+    .btn-primary{background:var(--brand-accent);color:#fff;box-shadow:var(--shadow)}
+    .btn-primary:hover{background:linear-gradient(90deg,var(--brand-accent-2),var(--brand-accent));box-shadow:0 0 25px var(--brand-accent-2);transform:translateY(-2px)}
+    .btn-glow{background:linear-gradient(90deg,var(--brand-accent),var(--brand-accent-2));color:#fff;border:none;box-shadow:0 6px 16px rgba(255,46,126,.35)}
+    .btn-glow:hover{background:linear-gradient(90deg,var(--brand-accent-2),var(--brand-accent));color:#fff;box-shadow:0 0 30px rgba(255,46,126,.6);transform:translateY(-3px)}
+
+    /* Sections */
+    .section{background:#fff;color:#0a0a0a;text-align:center}
+    .section .container{padding:42px 20px}
+    .section h2{font-size:clamp(1.6rem,3.5vw,2.4rem);margin:0 0 16px;text-align:center;text-wrap:balance}
+    .copy{max-width:72rem;margin:0 auto;display:grid;gap:18px}
+    .lead{color:#394150;max-width:80ch;margin:0 auto;text-align:center;font-size:clamp(1rem,1.15vw,1.25rem);line-height:1.7}
+
+    @media (max-width:920px){
+      .hero-grid{grid-template-columns:1fr}
+      .lead{font-size:1.05rem;line-height:1.65;padding:0 12px}
     }
 
-    /* ===== Base ===== */
-    html,
-    body {
-      margin: 0;
-      background: var(--brand-bg);
-      color: var(--brand-text);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Arial;
-    }
+    .bar{background:linear-gradient(90deg,var(--brand-accent),var(--brand-accent-2));color:#fff;text-align:center;font-weight:900;letter-spacing:.08em;padding:10px 0;text-transform:uppercase}
 
-    a {
-      color: inherit;
-      text-decoration: none
-    }
+    /* Panel */
+    .panel{background:linear-gradient(135deg,var(--brand-accent) 0%, #b932ff 40%, var(--brand-accent-2) 100%);color:#fff}
+    .panel .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center}
+    .checklist{border:2px solid rgba(255,255,255,.7);border-radius:22px;padding:22px}
+    .checklist li{margin:.55rem 0}
 
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block
-    }
+    /* Modal */
+    .modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;align-items:center;justify-content:center;padding:20px;z-index:1000}
+    .modal{width:min(640px,100%);background:#fff;border-radius:20px;box-shadow:var(--shadow);color:#0a0a0a;overflow:hidden}
+    .modal header{background:linear-gradient(90deg,var(--brand-accent),var(--brand-accent-2));color:#fff;padding:22px;position:relative}
+    .modal h3{margin:0;font-size:1.4rem}
+    .modal .content{padding:20px}
+    .row{display:grid;gap:10px;margin-bottom:12px}
+    label{font-size:.9rem;font-weight:700}
+    input,textarea{width:100%;padding:12px 14px;border-radius:12px;border:1.5px solid #d1d5db;font-size:1rem}
+    .agree{display:flex;gap:10px;align-items:flex-start;font-size:.9rem;color:#374151}
+    .x{position:absolute;top:10px;right:12px;background:#000000cc;color:#fff;border:none;border-radius:20px;line-height:1;cursor:pointer;width:28px;height:28px}
+    .btn-submit{background:#111827;color:#fff;border:none;padding:14px 18px;border-radius:999px;font-weight:800;margin-top:10px;transition:all .22s ease}
+    .btn-submit:hover{background:linear-gradient(90deg,var(--brand-accent-2),var(--brand-accent));transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,46,126,.45)}
+    .modal .legal a{display:inline-block;padding:2px 4px;border-radius:6px;text-decoration:underline;transition:all .2s ease;color:#111827}
+    .modal .legal a:hover{background:#00000010;color:#000;text-decoration:none;box-shadow:0 0 0 2px #00000020 inset}
+    footer{color:#9aa3af;font-size:.9rem;padding:24px 0;text-align:center;background:#0a0a0a}
 
-    .container {
-      max-width: 1150px;
-      margin: 0 auto;
-      padding: 0 20px
-    }
+    .agree{display:flex;align-items:flex-start;gap:10px;margin:16px 0;font-size:.9rem;color:#374151;line-height:1.4;flex-wrap:wrap}
+    .agree input[type="checkbox"]{transform:scale(1.4);margin-top:3px;accent-color:var(--brand-accent);cursor:pointer}
+    @media (max-width:600px){ .agree span{font-size:.95rem;line-height:1.5} }
 
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      gap: .5rem;
-      padding: .5rem 1rem;
-      border-radius: 999px;
-      font-weight: 700;
-      letter-spacing: .02em
-    }
-
-    /* ===== Top ribbon (centered + spaced) ===== */
-    .ribbon {
-      background: linear-gradient(90deg, var(--brand-accent), var(--brand-accent-2));
-      color: #fff;
-      font-weight: 800;
-      text-transform: uppercase;
-      font-size: 0.9rem;
-      letter-spacing: 0.2em;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 14px 0;
-    }
-
-    .ribbon ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 80px;
-    }
-
-    .ribbon li {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.9rem;
-    }
-
-    /* ===== Hero ===== */
-    .hero {
-      padding: 64px 0 24px;
-    }
-
-    .hero-grid {
-      display: grid;
-      /* left column has a readable max width; right column holds the photo */
-      grid-template-columns: minmax(320px, 720px) 1fr;
-      gap: 36px;
-      align-items: center;
-    }
-
-    /* center the entire left column inside the grid */
-    .hero-grid> :first-child {
-      justify-self: center;
-      text-align: center;
-    }
-
-    .headline {
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      font-weight: 900;
-      line-height: 1.05;
-      margin: 0;
-      text-wrap: balance;
-    }
-
-    .headline em {
-      font-style: normal;
-      color: var(--brand-accent);
-    }
-
-    .pill {
-      margin-inline: auto;
-    }
-
-    .sub {
-      color: var(--muted);
-      max-width: 56ch;
-      font-size: 1.05rem;
-      margin: 14px auto 0;
-    }
-
-    .video-card {
-      background: #0f0f13;
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      margin: 20px auto 0;
-    }
-
-    .video-card iframe {
-      width: 100%;
-      aspect-ratio: 16/9;
-      border: 0
-    }
-
-    .btn {
-      border: none;
-      cursor: pointer;
-      border-radius: 999px;
-      padding: 14px 22px;
-      font-weight: 800;
-      letter-spacing: .02em;
-      text-transform: uppercase;
-      transition: all .25s ease;
-    }
-
-    .btn-primary {
-      background: var(--brand-accent);
-      color: #fff;
-      box-shadow: var(--shadow)
-    }
-
-    .btn-primary:hover {
-      background: linear-gradient(90deg, var(--brand-accent-2), var(--brand-accent));
-      box-shadow: 0 0 25px var(--brand-accent-2);
-      transform: translateY(-2px);
-    }
-
-    .btn-glow {
-      background: linear-gradient(90deg, var(--brand-accent), var(--brand-accent-2));
-      color: #fff;
-      border: none;
-      box-shadow: 0 6px 16px rgba(255, 46, 126, 0.35);
-    }
-
-    .btn-glow:hover {
-      background: linear-gradient(90deg, var(--brand-accent-2), var(--brand-accent));
-      color: #fff;
-      box-shadow: 0 0 30px rgba(255, 46, 126, 0.6);
-      transform: translateY(-3px);
-    }
-
-    /* Panel CTA: white with black outline, then glow on hover */
-    .panel .btn-glow {
-      background: #fff;
-      color: #111;
-      border: 2px solid #111;
-      box-shadow: 0 6px 12px rgba(0, 0, 0, .15);
-    }
-
-    .panel .btn-glow:hover {
-      background: linear-gradient(90deg, var(--brand-accent-2), var(--brand-accent));
-      color: #fff;
-      border-color: transparent;
-      transform: translateY(-3px);
-      box-shadow: 0 8px 28px rgba(255, 46, 126, .6);
-    }
-
-    /* ===== Section ===== */
-    .section {
-      background: #fff;
-      color: #0a0a0a;
-      text-align: center;
-    }
-
-    .section .container {
-      padding: 42px 20px
-    }
-
-    .section h2 {
-      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
-      margin: 0 0 16px;
-      text-align: center;
-      text-wrap: balance;
-    }
-
-    .copy {
-      max-width: 72rem;
-      margin: 0 auto;
-      display: grid;
-      gap: 18px;
-    }
-
-    .lead {
-      color: #394150;
-      max-width: 80ch;
-      margin: 0 auto;
-      text-align: center;
-      font-size: clamp(1rem, 1.15vw, 1.25rem);
-      line-height: 1.7;
-    }
-
-    @media (max-width: 920px) {
-      .hero-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .lead {
-        font-size: 1.05rem;
-        line-height: 1.65;
-        padding: 0 12px;
-      }
-    }
-
-    .bar {
-      background: linear-gradient(90deg, var(--brand-accent), var(--brand-accent-2));
-      color: #fff;
-      text-align: center;
-      font-weight: 900;
-      letter-spacing: .08em;
-      padding: 10px 0;
-      text-transform: uppercase;
-    }
-
-    /* ===== Panel ===== */
-    .panel {
-      background: linear-gradient(135deg, var(--brand-accent) 0%, #b932ff 40%, var(--brand-accent-2) 100%);
-      color: #fff;
-    }
-
-    .panel .grid {
-      display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 30px;
-      align-items: center
-    }
-
-    .checklist {
-      border: 2px solid rgba(255, 255, 255, .7);
-      border-radius: 22px;
-      padding: 22px
-    }
-
-    .checklist li {
-      margin: .55rem 0
-    }
-
-    /* ===== Modal ===== */
-    .modal-backdrop {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, .6);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      z-index: 1000
-    }
-
-    .modal {
-      width: min(640px, 100%);
-      background: #fff;
-      border-radius: 20px;
-      box-shadow: var(--shadow);
-      color: #0a0a0a;
-      overflow: hidden
-    }
-
-    .modal header {
-      background: linear-gradient(90deg, var(--brand-accent), var(--brand-accent-2));
-      color: #fff;
-      padding: 22px;
-      position: relative
-    }
-
-    .modal h3 {
-      margin: 0;
-      font-size: 1.4rem
-    }
-
-    .modal .content {
-      padding: 20px
-    }
-
-    .row {
-      display: grid;
-      gap: 10px;
-      margin-bottom: 12px
-    }
-
-    label {
-      font-size: .9rem;
-      font-weight: 700
-    }
-
-    input,
-    textarea {
-      width: 100%;
-      padding: 12px 14px;
-      border-radius: 12px;
-      border: 1.5px solid #d1d5db;
-      font-size: 1rem
-    }
-
-    .agree {
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
-      font-size: .9rem;
-      color: #374151
-    }
-
-    .x {
-      position: absolute;
-      top: 10px;
-      right: 12px;
-      background: #000000cc;
-      color: #fff;
-      border: none;
-      border-radius: 20px;
-      line-height: 1;
-      cursor: pointer;
-      width: 28px;
-      height: 28px
-    }
-
-    .btn-submit {
-      background: #111827;
-      color: #fff;
-      border: none;
-      padding: 14px 18px;
-      border-radius: 999px;
-      font-weight: 800;
-      margin-top: 10px;
-      transition: all .22s ease;
-      /* hover transition */
-    }
-
-    /* Hover accents for Submit + legal links */
-    .btn-submit:hover {
-      background: linear-gradient(90deg, var(--brand-accent-2), var(--brand-accent));
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(255, 46, 126, .45);
-    }
-
-    .modal .legal a {
-      display: inline-block;
-      padding: 2px 4px;
-      border-radius: 6px;
-      text-decoration: underline;
-      transition: all .2s ease;
-      color: #111827;
-      /* dark text on white modal */
-    }
-
-    .modal .legal a:hover {
-      background: #00000010;
-      color: #000;
-      text-decoration: none;
-      box-shadow: 0 0 0 2px #00000020 inset;
-    }
-
-    footer {
-      color: #9aa3af;
-      font-size: .9rem;
-      padding: 24px 0;
-      text-align: center;
-      background: #0a0a0a
-    }
-
-    /* ===== Required Consent Checkbox ===== */
-    .agree {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      margin: 16px 0;
-      font-size: 0.9rem;
-      color: #374151;
-      line-height: 1.4;
-      flex-wrap: wrap;
-    }
-
-    .agree input[type="checkbox"] {
-      transform: scale(1.4);
-      margin-top: 3px;
-      accent-color: var(--brand-accent);
-      cursor: pointer;
-    }
-
-    @media (max-width: 600px) {
-      .agree {
-        flex-direction: row;
-        align-items: flex-start;
-      }
-
-      .agree span {
-        font-size: 0.95rem;
-        line-height: 1.5;
-      }
-    }
+    /* Phone dropdown lib helpers */
+    .iti{width:100%}
+    #phone.iti__tel-input{padding-left:52px;height:46px}
+    .phone-error{display:none;margin-top:6px;color:#ef4444;font-weight:700;font-size:.9rem}
   </style>
-</head>
 
+  <!-- intl-tel-input CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.5.6/build/css/intlTelInput.min.css" />
+</head>
 <body>
-  <!-- ===== Ribbon ===== -->
+  <!-- Ribbon -->
   <div class="ribbon">
     <ul class="container">
       <li>💸 Earn More.</li>
@@ -441,7 +102,7 @@
     </ul>
   </div>
 
-  <!-- ===== Hero ===== -->
+  <!-- Hero -->
   <section class="hero container">
     <div class="hero-grid">
       <div class="left">
@@ -451,11 +112,8 @@
           real options for wealth, legacy, freedom, and a future they control.</p>
 
         <div class="video-card" style="margin-top:20px;text-align:center;">
-          <iframe
-            src="https://www.youtube-nocookie.com/embed/yDUhlJnow_g?rel=0&modestbranding=1&autoplay=1&mute=1&playsinline=1"
-            title="Intro video" allow="autoplay; encrypted-media" style="width:100%;height:315px;border:0"
-            allowfullscreen>
-          </iframe>
+          <iframe src="https://www.youtube-nocookie.com/embed/yDUhlJnow_g?rel=0&modestbranding=1&autoplay=1&mute=1&playsinline=1"
+            title="Intro video" allow="autoplay; encrypted-media" style="width:100%;height:315px;border:0" allowfullscreen></iframe>
           <div style="margin:22px 0 26px;display:flex;flex-direction:column;align-items:center;gap:14px;">
             <button class="btn btn-primary" data-open-modal>GET ON MY RADAR NOW</button>
           </div>
@@ -467,22 +125,16 @@
     </div>
   </section>
 
-  <!-- ===== White Section ===== -->
+  <!-- White Section -->
   <section class="section">
     <div class="container center">
       <h2>ALL OPPORTUNITY. <em style="font-style:italic;">NO CEILINGS.</em></h2>
       <div class="copy">
-        <p class="lead">
-          Most people are stuck trading time for money — jobs that cap your income, side hustles that drain
-          your energy, or “opportunities” full of hidden costs.
-        </p>
-        <p class="lead">
-          Let’s be real: the old way of chasing success is broken. Long hours, high stress, little reward.
-        </p>
-        <p class="lead">
-          This business takes a smarter route — giving everyday people a proven system to create lasting
-          income, flexibility, and freedom on their own terms. A real path to building wealth and legacy.
-        </p>
+        <p class="lead">Most people are stuck trading time for money — jobs that cap your income, side hustles that drain
+          your energy, or “opportunities” full of hidden costs.</p>
+        <p class="lead">Let’s be real: the old way of chasing success is broken. Long hours, high stress, little reward.</p>
+        <p class="lead">This business takes a smarter route — giving everyday people a proven system to create lasting
+          income, flexibility, and freedom on their own terms.</p>
       </div>
       <div style="margin-top:28px; display:flex; justify-content:center;">
         <button class="btn btn-glow" data-open-modal>SHOW ME HOW</button>
@@ -492,14 +144,13 @@
 
   <div class="bar">▶ Instantly access the video and discover what’s possible.</div>
 
-  <!-- ===== Purple feature panel ===== -->
+  <!-- Panel -->
   <section class="panel">
     <div class="container" style="padding:40px 20px">
       <div class="grid">
         <div>
           <h2 style="margin:0 0 8px">WATCH THE VIDEO INSTANTLY…</h2>
-          <p style="opacity:.92">No need to wait for a live call — get the inside look instantly and see how this works
-            for real people like you.</p>
+          <p style="opacity:.92">No need to wait for a live call — get the inside look instantly and see how this works for real people like you.</p>
           <div style="margin-top:16px">
             <button class="btn btn-glow" data-open-modal>I'M READY, WATCH NOW</button>
           </div>
@@ -507,17 +158,18 @@
         <ul class="checklist">
           <li>✅ REAL STORIES: <strong>Everyday people earning $1,000–$5,000</strong> in their first week</li>
           <li>✅ <strong>$400 in-person paid training</strong></li>
-          <li>✅ <strong>Over $500 million already paid</strong> in commissions to associates</li>
-          <li>✅ How we’re building <strong>wealth, legacy, and true residual income</strong></li>
+          <li>✅ <strong>Over $500 million already paid</strong> in commissions</li>
+          <li>✅ How we’re building <strong>wealth, legacy, and residual income</strong></li>
           <li>✅ <strong>50-year-old company</strong> with a legacy that speaks for itself</li>
-          <li>✅ Build a solid book of business that will <strong>pay you residually</strong> for years</li>
         </ul>
       </div>
     </div>
   </section>
 
   <footer>
-    <div class="container">Copyright © <span id="yr"></span> Aysha Lapice • <a href="#">Terms & Conditions</a></div>
+    <div class="container">Copyright © <span id="yr"></span> Aysha Lapice •
+      <a href="terms.html" target="_blank" rel="noopener">Terms &amp; Conditions</a>
+    </div>
   </footer>
 
   <!-- ===== Modal (Lead Form) ===== -->
@@ -530,73 +182,96 @@
           create <strong>100 Six-Figure Earners.</strong></p>
       </header>
       <div class="content">
-        <form name="lead" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <form id="leadForm" name="lead" method="POST" data-netlify="true" netlify-honeypot="bot-field">
           <input type="hidden" name="form-name" value="lead" />
-          <p style="display:none">
-            <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
-          </p>
+          <p style="display:none"><label>Don’t fill this out if you’re human: <input name="bot-field" /></label></p>
+
           <div class="row">
-            <label for="first">First Name*</label>
-            <input id="first" name="first" placeholder="First Name" required />
+            <label for="name">Full Name*</label>
+            <input id="name" name="name" placeholder="First and Last Name" required />
           </div>
+
           <div class="row">
             <label for="phone">Phone*</label>
             <input id="phone" name="phone" type="tel" placeholder="(555) 555-5555" required />
+            <input type="hidden" id="phone_e164" name="phone_e164" />
+            <div id="phoneError" class="phone-error">Please enter a valid phone number.</div>
           </div>
+
           <div class="row">
             <label for="email">Email*</label>
             <input id="email" name="email" type="email" placeholder="you@example.com" required />
           </div>
 
-          <label class="agree">
-            <input type="checkbox" name="mkt" />
-            <span>I consent to receive marketing text messages from Aysha Empowers. Msg & data rates may apply. Reply STOP to opt
-              out.</span>
+          <label class="agree"><input type="checkbox" name="mkt" />
+            <span>I consent to receive marketing text messages from Aysha Empowers. Msg &amp; data rates may apply. Reply STOP to opt out.</span>
           </label>
 
-          <!-- Open in new tabs -->
           <p class="legal">
-            <a href="/terms.html" target="_blank" rel="noopener">Terms & Conditions</a>
+            <a href="terms.html" target="_blank" rel="noopener">Terms &amp; Conditions</a>
             &nbsp;•&nbsp;
-            <a href="/privacy.html" target="_blank" rel="noopener">Privacy Policy</a>
+            <a href="privacy.html" target="_blank" rel="noopener">Privacy Policy</a>
           </p>
 
           <button class="btn-submit" type="submit">SUBMIT</button>
-          <!-- success copy will be injected dynamically after submit -->
         </form>
       </div>
     </div>
   </div>
 
+  <!-- Core scripts -->
   <script>
-    // Year
     document.getElementById('yr').textContent = new Date().getFullYear();
 
-    // Open modal for all buttons with data-open-modal
     const openers = document.querySelectorAll('[data-open-modal]');
     const backdrop = document.getElementById('leadModal');
     openers.forEach(btn => btn.addEventListener('click', () => {
       backdrop.style.display = 'flex';
-      backdrop.setAttribute('aria-hidden', 'false');
-      const first = document.getElementById('first');
-      if (first) first.focus();
+      backdrop.setAttribute('aria-hidden','false');
+      const nameField = document.getElementById('name');
+      if (nameField) nameField.focus();
     }));
-
-    // Close modal (click on backdrop or [x])
     document.querySelectorAll('[data-close], .modal-backdrop').forEach(el => {
       el.addEventListener('click', (e) => {
-        if (e.target.classList.contains('modal-backdrop') || e.currentTarget.hasAttribute('data-close')) {
-          backdrop.style.display = 'none';
-          backdrop.setAttribute('aria-hidden', 'true');
+        if (e.target.classList.contains('modal-backdrop') || e.currentTarget.hasAttribute('data-close')){
+          backdrop.style.display='none';
+          backdrop.setAttribute('aria-hidden','true');
         }
-      })
+      });
     });
-    // Prevent clicks inside modal from closing it
     document.querySelector('.modal').addEventListener('click', e => e.stopPropagation());
+  </script>
 
-    // ---- Intercept modal form submit -> send to Netlify, show success + countdown ----
+  <!-- intl-tel-input scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.5.6/build/js/intlTelInput.min.js"></script>
+  <script>
+    const phoneInput = document.getElementById('phone');
+    const phoneError = document.getElementById('phoneError');
+    const phoneE164  = document.getElementById('phone_e164');
+
+    const iti = window.intlTelInput(phoneInput, {
+      initialCountry: 'us',
+      preferredCountries: ['us','ca'],
+      separateDialCode: true,
+      nationalMode: true,
+      formatOnDisplay: true,
+      autoPlaceholder: 'aggressive',
+      // NOTE: still include utilsScript for formatting/validation
+      utilsScript: 'https://cdn.jsdelivr.net/npm/intl-tel-input@18.5.6/build/js/utils.js',
+    });
+
+    // Wait until utils.js is loaded before relying on formatting/validation
+    iti.promise.then(() => {
+      const placeholder = iti.getNumberPlaceholder();
+      if (placeholder) phoneInput.placeholder = placeholder;
+      if (phoneInput.value) {
+        phoneInput.value = iti.getNumber(intlTelInputUtils.numberFormat.NATIONAL);
+      }
+    });
+
+    // Submit -> validate + fill hidden E.164, then Netlify POST and countdown
     (function () {
-      const form = document.querySelector('#leadModal form[name="lead"]');
+      const form = document.getElementById('leadForm');
       if (!form) return;
 
       function encodeFormData(fd) {
@@ -608,8 +283,17 @@
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
+        // phone validation
+        phoneError.style.display = 'none';
+        if (phoneInput.value.trim() && !iti.isValidNumber()) {
+          phoneError.style.display = 'block';
+          phoneInput.focus();
+          return;
+        }
+        // write clean E.164 for your email notifications/CSV
+        phoneE164.value = iti.getNumber();
+
         const fd = new FormData(form);
-        // make sure form-name is included in body for Netlify
         if (!fd.get('form-name')) fd.append('form-name', 'lead');
 
         try {
@@ -619,7 +303,7 @@
             body: encodeFormData(fd)
           });
 
-          // Replace form with success message + countdown
+          // Success UI + countdown
           const container = form.parentElement;
           container.innerHTML = `
             <div style="text-align:center; padding:20px 10px;">
@@ -630,14 +314,13 @@
               <p style="font-size:.95rem; color:#6b7280;">Thanks! You're on the list — check your inbox shortly.</p>
             </div>
           `;
-
-          let secs = 4;
-          const cd = setInterval(() => {
+          let secs = 3;
+          const tick = setInterval(() => {
             secs -= 1;
             const el = document.getElementById('countdown');
             if (el) el.textContent = secs;
             if (secs <= 0) {
-              clearInterval(cd);
+              clearInterval(tick);
               window.location.href = '/';
             }
           }, 1000);
@@ -650,5 +333,4 @@
     })();
   </script>
 </body>
-
 </html>
