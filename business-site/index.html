@@ -362,7 +362,8 @@
       border-radius: 999px;
       font-weight: 800;
       margin-top: 10px;
-      transition: all .22s ease; /* hover transition */
+      transition: all .22s ease;
+      /* hover transition */
     }
 
     /* Hover accents for Submit + legal links */
@@ -378,7 +379,8 @@
       border-radius: 6px;
       text-decoration: underline;
       transition: all .2s ease;
-      color: #111827; /* dark text on white modal */
+      color: #111827;
+      /* dark text on white modal */
     }
 
     .modal .legal a:hover {
@@ -394,6 +396,37 @@
       padding: 24px 0;
       text-align: center;
       background: #0a0a0a
+    }
+
+    /* ===== Required Consent Checkbox ===== */
+    .agree {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin: 16px 0;
+      font-size: 0.9rem;
+      color: #374151;
+      line-height: 1.4;
+      flex-wrap: wrap;
+    }
+
+    .agree input[type="checkbox"] {
+      transform: scale(1.4);
+      margin-top: 3px;
+      accent-color: var(--brand-accent);
+      cursor: pointer;
+    }
+
+    @media (max-width: 600px) {
+      .agree {
+        flex-direction: row;
+        align-items: flex-start;
+      }
+
+      .agree span {
+        font-size: 0.95rem;
+        line-height: 1.5;
+      }
     }
   </style>
 </head>
@@ -465,7 +498,8 @@
       <div class="grid">
         <div>
           <h2 style="margin:0 0 8px">WATCH THE VIDEO INSTANTLY…</h2>
-          <p style="opacity:.92">No need to wait for a live call — get the inside look instantly and see how this works for real people like you.</p>
+          <p style="opacity:.92">No need to wait for a live call — get the inside look instantly and see how this works
+            for real people like you.</p>
           <div style="margin-top:16px">
             <button class="btn btn-glow" data-open-modal>I'M READY, WATCH NOW</button>
           </div>
@@ -492,7 +526,8 @@
       <header>
         <button class="x" aria-label="Close" data-close>×</button>
         <h3>YOU ARE ONE STEP AWAY…</h3>
-        <p style="margin:.25rem 0 0;opacity:.9">You are one step away from hearing about the opportunity that will create <strong>100 Six-Figure Earners.</strong></p>
+        <p style="margin:.25rem 0 0;opacity:.9">You are one step away from hearing about the opportunity that will
+          create <strong>100 Six-Figure Earners.</strong></p>
       </header>
       <div class="content">
         <form name="lead" method="POST" data-netlify="true" netlify-honeypot="bot-field">
@@ -515,7 +550,8 @@
 
           <label class="agree">
             <input type="checkbox" name="mkt" />
-            <span>I consent to receive marketing text messages. Msg & data rates may apply. Reply STOP to opt out.</span>
+            <span>I consent to receive marketing text messages from Aysha Empowers. Msg & data rates may apply. Reply STOP to opt
+              out.</span>
           </label>
 
           <!-- Open in new tabs -->
@@ -616,4 +652,3 @@
 </body>
 
 </html>
-
