@@ -426,26 +426,32 @@
       cursor: pointer;
     }
 
-    /* ✅ Center the checkbox and text alignment on mobile */
+    /* ✅ Center the checkbox and text alignment on mobile (refined spacing) */
     @media (max-width: 600px) {
       .agree {
         display: flex;
         flex-direction: column;
         align-items: center;
         text-align: center;
-        gap: 8px;
+        gap: 6px;
+        /* tighter vertical spacing */
+        margin: 12px 0 10px;
+        /* consistent breathing room */
       }
 
       .agree input[type="checkbox"] {
-        transform: scale(1.3);
+        transform: scale(1.25);
+        /* slightly smaller, better alignment */
         margin: 0;
       }
 
       .agree span {
-        max-width: 90%;
-        line-height: 1.5;
+        max-width: 92%;
+        line-height: 1.45;
+        /* tighter text for compact view */
       }
     }
+
 
     /* Phone input */
     .iti {
