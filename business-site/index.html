@@ -522,9 +522,15 @@
         transform: scale(1.2);
       }
     }
+
+    .checklist li::before {
+      content: "✔";
+      color: #ffffff;
+      /* your checkmark white */
+      font-weight: 900;
+      margin-right: 8px;
+    }
   </style>
-
-
 
   <!-- intl-tel-input CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.5.6/build/css/intlTelInput.min.css" />
@@ -535,8 +541,8 @@
   <div class="ribbon">
     <ul class="container">
       <li>💸 Earn More.</li>
-      <li>🛡️ Protect More.</li>
-      <li>🕊️ Live Free.</li>
+      <li>🛡️ Protect What Matters.</li>
+      <li>🕊️ Live Limitless.</li>
     </ul>
   </div>
 
@@ -546,8 +552,10 @@
       <div class="left">
         <p class="pill" style="background:#1a1a1a;color:#cbd5e1">BUILD A FUTURE WITHOUT LIMITS</p>
         <h1 class="headline">WORK FROM ANYWHERE <em>REVOLUTION.</em></h1>
-        <p class="sub">Discover how I'm helping everyday people not only secure peace of mind, but also create
-          real options for wealth, legacy, freedom, and a future they control.</p>
+        <p class="sub">
+        <p class="sub">Discover how I’m helping everyday people find peace of mind and build real opportunities for
+          wealth, legacy, and freedom. No hype. Just results and a future they’re proud to build.</p>
+        </p>
 
         <div class="video-card" style="margin-top:20px;text-align:center;">
           <iframe
@@ -568,15 +576,16 @@
   <!-- White Section -->
   <section class="section">
     <div class="container center">
-      <h2>ALL OPPORTUNITY. <em style="font-style:italic;">NO CEILINGS.</em></h2>
+      <h2>ALL POTENTIAL. <em style="font-style:italic;">NO BARRIERS.</em></h2>
       <div class="copy">
-        <p class="lead">Most people are stuck trading time for money — jobs that cap your income, side hustles that
-          drain
-          your energy, or “opportunities” full of hidden costs.</p>
-        <p class="lead">Let’s be real: the old way of chasing success is broken. Long hours, high stress, little reward.
+        <p class="lead">Are you tired of jobs that cap your income, side hustles that drain your energy, or
+          “opportunities” full of hidden costs?</p>
+        <p class="lead">Let’s be real: working harder doesn’t always mean getting ahead. Endless hours, constant stress,
+          and minimal reward.
         </p>
-        <p class="lead">This business takes a smarter route — giving everyday people a proven system to create lasting
-          income, flexibility, and freedom on their own terms.</p>
+        <p class="lead">This business takes a smarter approach giving everyday people a proven system to earn lasting
+          income, enjoy flexibility, and create the life they truly want. A proven path to building lasting wealth and
+          leaving a legacy.</p>
       </div>
       <div style="margin-top:28px; display:flex; justify-content:center;">
         <button class="btn btn-glow" data-open-modal>SHOW ME HOW</button>
@@ -598,15 +607,27 @@
             <button class="btn btn-glow" data-open-modal>I'M READY, WATCH NOW</button>
           </div>
         </div>
-        <ul class="checklist">
-          <li>✅ REAL STORIES: <strong>Everyday people earning $1,000–$5,000</strong> in their first week</li>
-          <li>✅ <strong>$400 in-person paid training</strong></li>
-          <li>✅ <strong>Over $500 million already paid</strong> in commissions</li>
-          <li>✅ How we’re building <strong>wealth, legacy, and residual income</strong></li>
-          <li>✅ <strong>50-year-old company</strong> with a legacy that speaks for itself</li>
-        </ul>
+        <div class="checklist">
+          <h3 style="margin-top:0; margin-bottom:12px; font-weight:800;">Real Stories. Real Results.</h3>
+          <ul style="list-style:none; padding:0; margin:0; display:grid; gap:12px;">
+            <li>Everyday people earning <strong>$1,000–$5,000</strong> in their first week</li>
+            <li><strong>$200</strong> in-person paid training to get you started</li>
+            <li>Over <strong>$500&nbsp;million</strong> already paid in commissions to associates</li>
+          </ul>
+
+          <p style="margin-top:18px;">
+            We’re building <strong>wealth, legacy, and true residual income</strong> through a <strong>50-year-old
+              company</strong> with a legacy that speaks for itself.
+          </p>
+
+          <p style="margin-top:10px;">
+            Build a solid book of business that pays you <strong>residually for years to come</strong>, creating the
+            freedom, flexibility, and security you deserve.
+          </p>
+        </div>
+
+
       </div>
-    </div>
   </section>
 
   <footer>
@@ -776,6 +797,43 @@
       });
     })();
   </script>
+
+  <script>
+    // Helper to open the modal and focus the first field
+    function openLeadModal() {
+      const nameField = document.getElementById('name');
+      const backdrop = document.getElementById('leadModal');
+      backdrop.style.display = 'flex';
+      backdrop.setAttribute('aria-hidden', 'false');
+      if (nameField) nameField.focus();
+    }
+
+    // --- AUTO-OPEN ON PAGE LOAD ---
+    // OPTION A: always open immediately on every visit
+    // openLeadModal();
+
+    // OPTION B (recommended): open once per day, then respect dismissals
+    (function () {
+      const KEY = 'leadModal_suppress_until';
+      const now = Date.now();
+      const suppressUntil = Number(localStorage.getItem(KEY) || 0);
+
+      if (now > suppressUntil) {
+        // slight delay feels less jarring than instant
+        setTimeout(openLeadModal, 600);
+      }
+
+      // When user closes the modal, snooze it for 24h
+      document.querySelectorAll('[data-close], .modal-backdrop').forEach(el => {
+        el.addEventListener('click', (e) => {
+          if (e.target.classList.contains('modal-backdrop') || el.hasAttribute('data-close')) {
+            localStorage.setItem(KEY, String(now + 24 * 60 * 60 * 1000));
+          }
+        });
+      });
+    })();
+  </script>
+
 </body>
 
 </html>
