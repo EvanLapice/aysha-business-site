@@ -426,29 +426,45 @@
       cursor: pointer;
     }
 
-    /* ✅ Center the checkbox and text alignment on mobile (refined spacing) */
+    /* ✅ Final mobile centering fix for iPhone/Safari */
     @media (max-width: 600px) {
       .agree {
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
         text-align: center;
-        gap: 6px;
-        /* tighter vertical spacing */
+        gap: 8px;
         margin: 12px 0 10px;
-        /* consistent breathing room */
       }
 
       .agree input[type="checkbox"] {
-        transform: scale(1.25);
-        /* slightly smaller, better alignment */
-        margin: 0;
+        appearance: none;
+        -webkit-appearance: none;
+        /* remove iOS default offset */
+        width: 22px;
+        height: 22px;
+        border: 2px solid #a020f0;
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        background-color: #fff;
+        cursor: pointer;
+      }
+
+      .agree input[type="checkbox"]:checked::after {
+        content: "✔";
+        color: #a020f0;
+        font-size: 16px;
+        line-height: 1;
       }
 
       .agree span {
+        display: block;
         max-width: 92%;
         line-height: 1.45;
-        /* tighter text for compact view */
       }
     }
 
