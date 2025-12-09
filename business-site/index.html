@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -14,369 +15,542 @@
       --muted: #b4b4b4;
       --card: #101014;
       --white: #ffffff;
-      --shadow: 0 10px 25px rgba(0,0,0,.35);
+      --shadow: 0 10px 25px rgba(0, 0, 0, .35);
       --radius: 18px;
     }
 
-    html, body {
-      margin:0;
-      background:var(--brand-bg);
-      color:var(--brand-text);
-      font-family:Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Arial;
+    html,
+    body {
+      margin: 0;
+      background: var(--brand-bg);
+      color: var(--brand-text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Arial;
     }
-    a{ color:inherit; text-decoration:none }
-    img{ max-width:100%; height:auto; display:block }
-    .container{ max-width:1150px; margin:0 auto; padding:0 20px }
-    .pill{ display:inline-flex; align-items:center; gap:.5rem; padding:.5rem 1rem; border-radius:999px; font-weight:700; letter-spacing:.02em }
+
+    a {
+      color: inherit;
+      text-decoration: none
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block
+    }
+
+    .container {
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 0 20px
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .5rem 1rem;
+      border-radius: 999px;
+      font-weight: 700;
+      letter-spacing: .02em
+    }
 
     /* Ribbon */
-    .ribbon{
-      background:linear-gradient(90deg,var(--brand-accent),var(--brand-accent-2));
-      color:#fff;
-      font-weight:800;
-      text-transform:uppercase;
-      font-size:.9rem;
-      letter-spacing:.2em;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      padding:14px 0;
+    .ribbon {
+      background: linear-gradient(90deg, var(--brand-accent), var(--brand-accent-2));
+      color: #fff;
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: .9rem;
+      letter-spacing: .2em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 14px 0;
     }
-    .ribbon ul{
-      list-style:none;
-      margin:0;
-      padding:0;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      gap:80px
+
+    .ribbon ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 80px
     }
-    .ribbon li{
-      display:flex;
-      align-items:center;
-      gap:8px;
-      font-size:.9rem
+
+    .ribbon li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .9rem
+    }
+
+    .ribbon li:first-child {
+      padding-left: 20px;
+      /* adjust as needed */
+    }
+
+
+    @media (max-width: 600px) {
+      .ribbon {
+        padding: 10px 8px;
+      }
+
+      .ribbon ul {
+        flex-wrap: wrap;
+        /* allows items to drop to next line */
+        gap: 16px;
+        /* smaller spacing */
+        justify-content: center;
+      }
+
+      .ribbon li {
+        font-size: 0.8rem;
+        /* slightly smaller text */
+        text-align: center;
+      }
     }
 
     /* Hero */
-    .hero{ padding:64px 0 24px }
-    .hero-grid{
-      display:grid;
-      grid-template-columns:minmax(320px,720px) 1fr;
-      gap:36px;
-      align-items:center
+    .hero {
+      padding: 64px 0 24px
     }
-    .hero-grid>:first-child{ justify-self:center; text-align:center }
-    .headline{
-      font-size:clamp(2rem,5vw,3.5rem);
-      font-weight:900;
-      line-height:1.05;
-      margin:0;
-      text-wrap:balance
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(320px, 720px) 1fr;
+      gap: 36px;
+      align-items: center
     }
-    .headline em{ font-style:normal; color:var(--brand-accent) }
-    .pill{ margin-inline:auto }
-    .sub{
-      color:var(--muted);
-      max-width:56ch;
-      font-size:1.05rem;
-      margin:14px auto 0
+
+    .hero-grid>:first-child {
+      justify-self: center;
+      text-align: center
     }
-    .video-card{
-      background:#0f0f13;
-      border-radius:var(--radius);
-      overflow:hidden;
-      box-shadow:var(--shadow);
-      margin:20px auto 0
+
+    .headline {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 900;
+      line-height: 1.05;
+      margin: 0;
+      text-wrap: balance
     }
-    .video-card iframe{ width:100%; aspect-ratio:16/9; border:0 }
+
+    .headline em {
+      font-style: normal;
+      color: var(--brand-accent)
+    }
+
+    .pill {
+      margin-inline: auto
+    }
+
+    .sub {
+      color: var(--muted);
+      max-width: 56ch;
+      font-size: 1.05rem;
+      margin: 14px auto 0
+    }
+
+    .video-card {
+      background: #0f0f13;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      margin: 20px auto 0
+    }
+
+    .video-card iframe {
+      width: 100%;
+      aspect-ratio: 16/9;
+      border: 0
+    }
 
     /* Buttons */
-    .btn{
-      border:none;
-      cursor:pointer;
-      border-radius:999px;
-      padding:14px 22px;
-      font-weight:800;
-      letter-spacing:.02em;
-      text-transform:uppercase;
-      transition:all .25s ease;
+    .btn {
+      border: none;
+      cursor: pointer;
+      border-radius: 999px;
+      padding: 14px 22px;
+      font-weight: 800;
+      letter-spacing: .02em;
+      text-transform: uppercase;
+      transition: all .25s ease;
     }
-    .btn-primary{ background:var(--brand-accent); color:#fff; box-shadow:var(--shadow) }
-    .btn-primary:hover{
-      background:linear-gradient(90deg,var(--brand-accent-2),var(--brand-accent));
-      box-shadow:0 0 25px var(--brand-accent-2);
-      transform:translateY(-2px)
+
+    .btn-primary {
+      background: var(--brand-accent);
+      color: #fff;
+      box-shadow: var(--shadow)
     }
-    .btn-glow{
-      background:linear-gradient(90deg,var(--brand-accent),var(--brand-accent-2));
-      color:#fff;
-      border:none;
-      box-shadow:0 6px 16px rgba(255,46,126,.35)
+
+    .btn-primary:hover {
+      background: linear-gradient(90deg, var(--brand-accent-2), var(--brand-accent));
+      box-shadow: 0 0 25px var(--brand-accent-2);
+      transform: translateY(-2px)
     }
-    .btn-glow:hover{
-      background:linear-gradient(90deg,var(--brand-accent-2),var(--brand-accent));
-      color:#fff;
-      box-shadow:0 0 30px rgba(255,46,126,.6);
-      transform:translateY(-3px)
+
+    .btn-glow {
+      background: linear-gradient(90deg, var(--brand-accent), var(--brand-accent-2));
+      color: #fff;
+      border: none;
+      box-shadow: 0 6px 16px rgba(255, 46, 126, .35)
+    }
+
+    .btn-glow:hover {
+      background: linear-gradient(90deg, var(--brand-accent-2), var(--brand-accent));
+      color: #fff;
+      box-shadow: 0 0 30px rgba(255, 46, 126, .6);
+      transform: translateY(-3px)
     }
 
     /* Make anchor buttons behave like the original button layout */
-    .btn-link{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
+    .btn-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
     }
 
     /* Section */
-    .section{ background:#fff; color:#0a0a0a; text-align:center }
-    .section .container{ padding:42px 20px }
-    .section h2{
-      font-size:clamp(1.6rem,3.5vw,2.4rem);
-      margin:0 0 16px;
-      text-align:center;
-      text-wrap:balance
-    }
-    .copy{ max-width:72rem; margin:0 auto; display:grid; gap:18px }
-    .lead{
-      color:#394150;
-      max-width:80ch;
-      margin:0 auto;
-      text-align:center;
-      font-size:clamp(1rem,1.15vw,1.25rem);
-      line-height:1.7
+    .section {
+      background: #fff;
+      color: #0a0a0a;
+      text-align: center
     }
 
-    @media (max-width:920px){
-      .hero-grid{ grid-template-columns:1fr }
-      .lead{
-        font-size:1.05rem;
-        line-height:1.65;
-        padding:0 12px
+    .section .container {
+      padding: 42px 20px
+    }
+
+    .section h2 {
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      margin: 0 0 16px;
+      text-align: center;
+      text-wrap: balance
+    }
+
+    .copy {
+      max-width: 72rem;
+      margin: 0 auto;
+      display: grid;
+      gap: 18px
+    }
+
+    .lead {
+      color: #394150;
+      max-width: 80ch;
+      margin: 0 auto;
+      text-align: center;
+      font-size: clamp(1rem, 1.15vw, 1.25rem);
+      line-height: 1.7
+    }
+
+    @media (max-width:920px) {
+      .hero-grid {
+        grid-template-columns: 1fr
+      }
+
+      .lead {
+        font-size: 1.05rem;
+        line-height: 1.65;
+        padding: 0 12px
       }
     }
 
-    .bar{
-      background:linear-gradient(90deg,var(--brand-accent),var(--brand-accent-2));
-      color:#fff;
-      text-align:center;
-      font-weight:900;
-      letter-spacing:.08em;
-      padding:10px 0;
-      text-transform:uppercase
+    .bar {
+      background: linear-gradient(90deg, var(--brand-accent), var(--brand-accent-2));
+      color: #fff;
+      text-align: center;
+      font-weight: 900;
+      letter-spacing: .08em;
+      padding: 10px 0;
+      text-transform: uppercase
     }
 
     /* Panel — white CTA button */
-    .panel{
-      background:linear-gradient(135deg,var(--brand-accent) 0%, #b932ff 40%, var(--brand-accent-2) 100%);
-      color:#fff
+    .panel {
+      background: linear-gradient(135deg, var(--brand-accent) 0%, #b932ff 40%, var(--brand-accent-2) 100%);
+      color: #fff
     }
-    .panel .grid{
-      display:grid;
-      grid-template-columns:1.1fr .9fr;
-      gap:30px;
-      align-items:center
+
+    .panel .grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 30px;
+      align-items: center
     }
-    .checklist{
-      border:2px solid rgba(255,255,255,.7);
-      border-radius:22px;
-      padding:22px;
+
+    .checklist {
+      border: 2px solid rgba(255, 255, 255, .7);
+      border-radius: 22px;
+      padding: 22px;
     }
-    .checklist li{ margin:.55rem 0 }
-    .panel .btn-glow{
-      background:#fff;
-      color:#111;
-      border:2px solid #111;
-      box-shadow:0 6px 12px rgba(0,0,0,.15)
+
+    .checklist li {
+      margin: .55rem 0
     }
-    .panel .btn-glow:hover{
-      background:linear-gradient(90deg,var(--brand-accent-2),var(--brand-accent));
-      color:#fff;
-      border-color:transparent;
-      transform:translateY(-3px);
-      box-shadow:0 8px 28px rgba(255,46,126,.6)
+
+    .panel .btn-glow {
+      background: #fff;
+      color: #111;
+      border: 2px solid #111;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, .15)
+    }
+
+    .panel .btn-glow:hover {
+      background: linear-gradient(90deg, var(--brand-accent-2), var(--brand-accent));
+      color: #fff;
+      border-color: transparent;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 28px rgba(255, 46, 126, .6)
     }
 
     /* Backdrop */
-    .modal-backdrop{
-      position:fixed;
-      inset:0;
-      background:rgba(0,0,0,.75);
-      display:none;
-      align-items:center;
-      justify-content:center;
-      padding:20px;
-      z-index:1000;
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, .75);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 1000;
     }
 
     /* Modal — seamless gradient header */
-    .modal{
-      width:min(640px,100%);
-      color:#0a0a0a;
-      box-shadow:var(--shadow);
-      overflow:hidden;
-      border-radius:20px;
-      background:#fff;
-      position:relative;
-      margin:0;
-      padding:0;
-      border:none
-    }
-    .modal header{
-      position:relative;
-      background:linear-gradient(90deg,var(--brand-accent),var(--brand-accent-2));
-      color:#fff;
-      padding:22px;
-      margin:0;
-      border-top-left-radius:20px;
-      border-top-right-radius:20px
-    }
-    .modal header::after{
-      content:"";
-      position:absolute;
-      left:0;
-      right:0;
-      bottom:-1px;
-      height:2px;
-      background:inherit
-    }
-    .modal .content{
-      background:#fff;
-      padding:20px;
-      position:relative;
-      z-index:2
-    }
-    .modal h3{ margin:0; font-size:1.4rem; line-height:1.3 }
-    .row{ display:grid; gap:10px; margin-bottom:12px }
-    label{ font-size:.9rem; font-weight:700 }
-    input, textarea{
-      width:100%;
-      padding:12px 14px;
-      border-radius:12px;
-      border:1.5px solid #d1d5db;
-      font-size:1rem
-    }
-    .x{
-      position:absolute;
-      top:10px;
-      right:12px;
-      background:#000000cc;
-      color:#fff;
-      border:none;
-      border-radius:20px;
-      line-height:1;
-      cursor:pointer;
-      width:28px;
-      height:28px
+    .modal {
+      width: min(640px, 100%);
+      color: #0a0a0a;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      border-radius: 20px;
+      background: #fff;
+      position: relative;
+      margin: 0;
+      padding: 0;
+      border: none
     }
 
-    .btn-submit{
-      background:#111827;
-      color:#fff;
-      border:none;
-      padding:14px 18px;
-      border-radius:999px;
-      font-weight:800;
-      margin-top:10px;
-      transition:all .22s ease
-    }
-    .btn-submit:hover{
-      background:linear-gradient(90deg,var(--brand-accent-2),var(--brand-accent));
-      transform:translateY(-2px);
-      box-shadow:0 8px 24px rgba(255,46,126,.45)
+    .modal header {
+      position: relative;
+      background: linear-gradient(90deg, var(--brand-accent), var(--brand-accent-2));
+      color: #fff;
+      padding: 22px;
+      margin: 0;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px
     }
 
-    .modal .legal a{
-      display:inline-block;
-      padding:2px 4px;
-      border-radius:6px;
-      text-decoration:underline;
-      transition:all .2s ease;
-      color:#111827
-    }
-    .modal .legal a:hover{
-      background:#00000010;
-      color:#000;
-      text-decoration:none;
-      box-shadow:0 0 0 2px #00000020 inset
+    .modal header::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -1px;
+      height: 2px;
+      background: inherit
     }
 
-    footer{
-      color:#9aa3af;
-      font-size:.9rem;
-      padding:24px 0;
-      text-align:center;
-      background:#0a0a0a
+    .modal .content {
+      background: #fff;
+      padding: 20px;
+      position: relative;
+      z-index: 2
+    }
+
+    .modal h3 {
+      margin: 0;
+      font-size: 1.4rem;
+      line-height: 1.3
+    }
+
+    .row {
+      display: grid;
+      gap: 10px;
+      margin-bottom: 12px
+    }
+
+    label {
+      font-size: .9rem;
+      font-weight: 700
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1.5px solid #d1d5db;
+      font-size: 1rem
+    }
+
+    .x {
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      background: #000000cc;
+      color: #fff;
+      border: none;
+      border-radius: 20px;
+      line-height: 1;
+      cursor: pointer;
+      width: 28px;
+      height: 28px
+    }
+
+    .btn-submit {
+      background: #111827;
+      color: #fff;
+      border: none;
+      padding: 14px 18px;
+      border-radius: 999px;
+      font-weight: 800;
+      margin-top: 10px;
+      transition: all .22s ease
+    }
+
+    .btn-submit:hover {
+      background: linear-gradient(90deg, var(--brand-accent-2), var(--brand-accent));
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(255, 46, 126, .45)
+    }
+
+    .modal .legal a {
+      display: inline-block;
+      padding: 2px 4px;
+      border-radius: 6px;
+      text-decoration: underline;
+      transition: all .2s ease;
+      color: #111827
+    }
+
+    .modal .legal a:hover {
+      background: #00000010;
+      color: #000;
+      text-decoration: none;
+      box-shadow: 0 0 0 2px #00000020 inset
+    }
+
+    footer {
+      color: #9aa3af;
+      font-size: .9rem;
+      padding: 24px 0;
+      text-align: center;
+      background: #0a0a0a
     }
 
     /* Consent checkbox */
-    .agree{
-      display:flex;
-      align-items:flex-start;
-      gap:10px;
-      margin:16px 0;
-      font-size:.9rem;
-      color:#374151;
-      line-height:1.4;
-      flex-wrap:wrap
+    .agree {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin: 16px 0;
+      font-size: .9rem;
+      color: #374151;
+      line-height: 1.4;
+      flex-wrap: wrap
     }
-    .agree input[type="checkbox"]{
-      transform:scale(1.4);
-      margin-top:3px;
-      accent-color:var(--brand-accent);
-      cursor:pointer
+
+    .agree input[type="checkbox"] {
+      transform: scale(1.4);
+      margin-top: 3px;
+      accent-color: var(--brand-accent);
+      cursor: pointer
     }
 
     /* Mobile tweaks + center checkbox/text */
-    @media (max-width:600px){
-      .modal{ width:94%; border-radius:16px }
-      .modal header{ text-align:center; padding:16px }
-      .modal h3{ font-size:1.2rem; line-height:1.3 }
-      .modal header p{ font-size:.9rem; line-height:1.4 }
-      .modal .content{ padding:16px 14px }
-      .row label{ font-size:.85rem }
-      input, textarea{ font-size:1rem; padding:10px 12px }
-      .btn-submit{ width:100%; padding:14px; font-size:.95rem }
+    @media (max-width:600px) {
+      .modal {
+        width: 94%;
+        border-radius: 16px
+      }
 
-      .agree{
-        display:flex;
-        flex-direction:column;
-        align-items:center;
-        text-align:center;
-        gap:8px;
-        margin:12px 0 10px
+      .modal header {
+        text-align: center;
+        padding: 16px
       }
-      .agree input[type="checkbox"]{
-        appearance:none; -webkit-appearance:none;
-        width:22px; height:22px; border:2px solid var(--brand-accent);
-        border-radius:4px; display:flex; align-items:center; justify-content:center;
-        margin:0 auto; background:#fff; cursor:pointer;
+
+      .modal h3 {
+        font-size: 1.2rem;
+        line-height: 1.3
       }
-      .agree input[type="checkbox"]:checked::after{
-        content:"✔";
-        color:var(--brand-accent);
-        font-size:16px;
-        line-height:1
+
+      .modal header p {
+        font-size: .9rem;
+        line-height: 1.4
       }
-      .agree span{
-        display:block;
-        max-width:92%;
-        line-height:1.45
+
+      .modal .content {
+        padding: 16px 14px
+      }
+
+      .row label {
+        font-size: .85rem
+      }
+
+      input,
+      textarea {
+        font-size: 1rem;
+        padding: 10px 12px
+      }
+
+      .btn-submit {
+        width: 100%;
+        padding: 14px;
+        font-size: .95rem
+      }
+
+      .agree {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 8px;
+        margin: 12px 0 10px
+      }
+
+      .agree input[type="checkbox"] {
+        appearance: none;
+        -webkit-appearance: none;
+        width: 22px;
+        height: 22px;
+        border: 2px solid var(--brand-accent);
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        background: #fff;
+        cursor: pointer;
+      }
+
+      .agree input[type="checkbox"]:checked::after {
+        content: "✔";
+        color: var(--brand-accent);
+        font-size: 16px;
+        line-height: 1
+      }
+
+      .agree span {
+        display: block;
+        max-width: 92%;
+        line-height: 1.45
       }
     }
 
     /* Checklist checkmarks */
-    .checklist li::before{
-      content:"✔";
-      color:#ffffff;
-      font-weight:900;
-      margin-right:8px;
+    .checklist li::before {
+      content: "✔";
+      color: #ffffff;
+      font-weight: 900;
+      margin-right: 8px;
     }
   </style>
 
   <!-- intl-tel-input CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.5.6/build/css/intlTelInput.min.css" />
 </head>
+
 <body>
   <!-- Ribbon -->
   <div class="ribbon">
@@ -394,8 +568,8 @@
         <p class="pill" style="background:#1a1a1a;color:#cbd5e1">Empower Yourself. Protect Your Future.</p>
         <h1 class="headline">EVERYDAY LEGAL <em>PROTECTION.</em></h1>
         <p class="sub">
-          Discover how I'm helping everyday hard working people and small businesses in all 
-           <b>50 states and Canada.</b> protect their rights, 
+          Discover how I'm helping everyday hard working people and small businesses in all
+          <b>50 states and Canada.</b> protect their rights,
           their families, and their future with affortable legal coverage when life feels overwehlming.
         </p>
 
@@ -416,12 +590,8 @@
 
         <!-- Simple CTA instead of video -->
         <div style="margin-top:24px; display:flex; justify-content:center;">
-          <a
-            class="btn btn-primary btn-link"
-            href="https://alapice.legalshieldassociate.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a class="btn btn-primary btn-link" href="https://alapice.legalshieldassociate.com/" target="_blank"
+            rel="noopener noreferrer">
             FIND THE RIGHT LEGAL PLAN FOR YOU
           </a>
         </div>
@@ -438,21 +608,21 @@
     <div class="container center">
       <h2>LIFE DOESN'T WAIT. <em style="font-style:italic;">NEITHER SHOULD YOU.</em></h2>
       <div class="copy">
-        <p class="lead">Ever worry about getting pulled over, served with legal papers, or handed a contract you don't fully understand?</p>
-        <p class="lead">Legal problems don’t care how "busy" your life is. They can turn a normal week upside down in an instant.</p>
+        <p class="lead">Ever worry about getting pulled over, served with legal papers, or handed a contract you don't
+          fully understand?</p>
+        <p class="lead">Legal problems don’t care how "busy" your life is. They can turn a normal week upside down in an
+          instant.</p>
         <p class="lead">
-          With legal coverage, you gain access to a dedicated law firms in all <b>50 states and Canada</b> for your family or small business. From document and contract review, 
-          traffic tickets, will and trust preperation, landlord or custody questions, employment law support, and more. You will have expert guidance and protection 
+          With legal coverage, you gain access to a dedicated law firms in all <b>50 states and Canada</b> for your
+          family or small business. From document and contract review,
+          traffic tickets, will and trust preperation, landlord or custody questions, employment law support, and more.
+          You will have expert guidance and protection
           for a predictable monthly price, instead of unpredictable hourly legal fees.
         </p>
       </div>
       <div style="margin-top:28px; display:flex; justify-content:center;">
-        <a
-          class="btn btn-glow btn-link"
-          href="https://alapice.legalshieldassociate.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a class="btn btn-glow btn-link" href="https://alapice.legalshieldassociate.com/" target="_blank"
+          rel="noopener noreferrer">
           YOUR LEGAL PLAN AWAITS
         </a>
       </div>
@@ -468,7 +638,7 @@
         <div>
           <h2 style="margin:0 0 8px">Connect with Me to Protect Your Family or Business</h2>
           <p style="opacity:.92">
-            Just a conversation with me to understand your needs and select the right plan for you! 
+            Just a conversation with me to understand your needs and select the right plan for you!
             Your peace of mind so you can move through life with more confidence and less fear of “what if.”
           </p>
           <div style="margin-top:16px">
@@ -479,11 +649,12 @@
         <div class="checklist">
           <h3 style="margin-top:0; margin-bottom:12px; font-weight:800;">Life Happens. Be Covered.</h3>
           <ul style="list-style:none; padding:0; margin:0; display:grid; gap:12px;">
-            <li>Everyday individuals and small business owners are getting answers to legal questions without worrying about expensive hourly legal fees.</li>
+            <li>Everyday individuals and small business owners are getting answers to legal questions without worrying
+              about expensive hourly legal fees.</li>
             <li>Unlimited personal consultations with a dedicated provider law firm for covered issues.</li>
             <li>Assitance with establishing wills, living wills, and powers of attorney.</li>
           </ul>
-         
+
         </div>
       </div>
     </div>
@@ -502,7 +673,8 @@
         <button class="x" aria-label="Close" data-close>×</button>
         <h3>ONE STEP AWAY…</h3>
         <p style="margin:.25rem 0 0;opacity:.9">
-          You’re one conversation away from discovering how you can protect you, your family, your business, and your future!
+          You’re one conversation away from discovering how you can protect you, your family, your business, and your
+          future!
         </p>
       </header>
       <div class="content">
@@ -549,8 +721,8 @@
 
   <!-- Hidden fallback form so Netlify sees it -->
   <form name="lead" netlify netlify-honeypot="bot-field" hidden>
-    <input type="text"  name="name">
-    <input type="tel"   name="phone">
+    <input type="text" name="name">
+    <input type="tel" name="phone">
     <input type="email" name="email">
   </form>
 
@@ -562,15 +734,15 @@
     const backdrop = document.getElementById('leadModal');
     openers.forEach(btn => btn.addEventListener('click', () => {
       backdrop.style.display = 'flex';
-      backdrop.setAttribute('aria-hidden','false');
+      backdrop.setAttribute('aria-hidden', 'false');
       const nameField = document.getElementById('name');
       if (nameField) nameField.focus();
     }));
     document.querySelectorAll('[data-close], .modal-backdrop').forEach(el => {
       el.addEventListener('click', (e) => {
-        if (e.target.classList.contains('modal-backdrop') || e.currentTarget.hasAttribute('data-close')){
-          backdrop.style.display='none';
-          backdrop.setAttribute('aria-hidden','true');
+        if (e.target.classList.contains('modal-backdrop') || e.currentTarget.hasAttribute('data-close')) {
+          backdrop.style.display = 'none';
+          backdrop.setAttribute('aria-hidden', 'true');
         }
       });
     });
@@ -582,11 +754,11 @@
   <script>
     const phoneInput = document.getElementById('phone');
     const phoneError = document.getElementById('phoneError');
-    const phoneE164  = document.getElementById('phone_e164');
+    const phoneE164 = document.getElementById('phone_e164');
 
     const iti = window.intlTelInput(phoneInput, {
       initialCountry: 'us',
-      preferredCountries: ['us','ca'],
+      preferredCountries: ['us', 'ca'],
       separateDialCode: true,
       nationalMode: true,
       formatOnDisplay: true,
@@ -691,4 +863,5 @@
     })();
   </script>
 </body>
+
 </html>
