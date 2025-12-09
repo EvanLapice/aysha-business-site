@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Work From Anywhere — Opportunity</title>
+  <title>Family Legal Protection — Aysha Empowers</title>
 
   <style>
     :root {
@@ -18,83 +18,314 @@
       --radius: 18px;
     }
 
-    html, body { margin:0; background:var(--brand-bg); color:var(--brand-text);
-      font-family:Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Arial; }
+    html, body {
+      margin:0;
+      background:var(--brand-bg);
+      color:var(--brand-text);
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Arial;
+    }
     a{ color:inherit; text-decoration:none }
     img{ max-width:100%; height:auto; display:block }
     .container{ max-width:1150px; margin:0 auto; padding:0 20px }
     .pill{ display:inline-flex; align-items:center; gap:.5rem; padding:.5rem 1rem; border-radius:999px; font-weight:700; letter-spacing:.02em }
 
     /* Ribbon */
-    .ribbon{ background:linear-gradient(90deg,var(--brand-accent),var(--brand-accent-2)); color:#fff; font-weight:800; text-transform:uppercase; font-size:.9rem; letter-spacing:.2em; display:flex; justify-content:center; align-items:center; padding:14px 0; }
-    .ribbon ul{ list-style:none; margin:0; padding:0; display:flex; justify-content:center; align-items:center; gap:80px }
-    .ribbon li{ display:flex; align-items:center; gap:8px; font-size:.9rem }
+    .ribbon{
+      background:linear-gradient(90deg,var(--brand-accent),var(--brand-accent-2));
+      color:#fff;
+      font-weight:800;
+      text-transform:uppercase;
+      font-size:.9rem;
+      letter-spacing:.2em;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:14px 0;
+    }
+    .ribbon ul{
+      list-style:none;
+      margin:0;
+      padding:0;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:80px
+    }
+    .ribbon li{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      font-size:.9rem
+    }
 
     /* Hero */
     .hero{ padding:64px 0 24px }
-    .hero-grid{ display:grid; grid-template-columns:minmax(320px,720px) 1fr; gap:36px; align-items:center }
+    .hero-grid{
+      display:grid;
+      grid-template-columns:minmax(320px,720px) 1fr;
+      gap:36px;
+      align-items:center
+    }
     .hero-grid>:first-child{ justify-self:center; text-align:center }
-    .headline{ font-size:clamp(2rem,5vw,3.5rem); font-weight:900; line-height:1.05; margin:0; text-wrap:balance }
+    .headline{
+      font-size:clamp(2rem,5vw,3.5rem);
+      font-weight:900;
+      line-height:1.05;
+      margin:0;
+      text-wrap:balance
+    }
     .headline em{ font-style:normal; color:var(--brand-accent) }
     .pill{ margin-inline:auto }
-    .sub{ color:var(--muted); max-width:56ch; font-size:1.05rem; margin:14px auto 0 }
-    .video-card{ background:#0f0f13; border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); margin:20px auto 0 }
+    .sub{
+      color:var(--muted);
+      max-width:56ch;
+      font-size:1.05rem;
+      margin:14px auto 0
+    }
+    .video-card{
+      background:#0f0f13;
+      border-radius:var(--radius);
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      margin:20px auto 0
+    }
     .video-card iframe{ width:100%; aspect-ratio:16/9; border:0 }
 
     /* Buttons */
-    .btn{ border:none; cursor:pointer; border-radius:999px; padding:14px 22px; font-weight:800; letter-spacing:.02em; text-transform:uppercase; transition:all .25s ease; }
+    .btn{
+      border:none;
+      cursor:pointer;
+      border-radius:999px;
+      padding:14px 22px;
+      font-weight:800;
+      letter-spacing:.02em;
+      text-transform:uppercase;
+      transition:all .25s ease;
+    }
     .btn-primary{ background:var(--brand-accent); color:#fff; box-shadow:var(--shadow) }
-    .btn-primary:hover{ background:linear-gradient(90deg,var(--brand-accent-2),var(--brand-accent)); box-shadow:0 0 25px var(--brand-accent-2); transform:translateY(-2px) }
-    .btn-glow{ background:linear-gradient(90deg,var(--brand-accent),var(--brand-accent-2)); color:#fff; border:none; box-shadow:0 6px 16px rgba(255,46,126,.35) }
-    .btn-glow:hover{ background:linear-gradient(90deg,var(--brand-accent-2),var(--brand-accent)); color:#fff; box-shadow:0 0 30px rgba(255,46,126,.6); transform:translateY(-3px) }
+    .btn-primary:hover{
+      background:linear-gradient(90deg,var(--brand-accent-2),var(--brand-accent));
+      box-shadow:0 0 25px var(--brand-accent-2);
+      transform:translateY(-2px)
+    }
+    .btn-glow{
+      background:linear-gradient(90deg,var(--brand-accent),var(--brand-accent-2));
+      color:#fff;
+      border:none;
+      box-shadow:0 6px 16px rgba(255,46,126,.35)
+    }
+    .btn-glow:hover{
+      background:linear-gradient(90deg,var(--brand-accent-2),var(--brand-accent));
+      color:#fff;
+      box-shadow:0 0 30px rgba(255,46,126,.6);
+      transform:translateY(-3px)
+    }
+
+    /* Make anchor buttons behave like the original button layout */
+    .btn-link{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+    }
 
     /* Section */
     .section{ background:#fff; color:#0a0a0a; text-align:center }
     .section .container{ padding:42px 20px }
-    .section h2{ font-size:clamp(1.6rem,3.5vw,2.4rem); margin:0 0 16px; text-align:center; text-wrap:balance }
+    .section h2{
+      font-size:clamp(1.6rem,3.5vw,2.4rem);
+      margin:0 0 16px;
+      text-align:center;
+      text-wrap:balance
+    }
     .copy{ max-width:72rem; margin:0 auto; display:grid; gap:18px }
-    .lead{ color:#394150; max-width:80ch; margin:0 auto; text-align:center; font-size:clamp(1rem,1.15vw,1.25rem); line-height:1.7 }
+    .lead{
+      color:#394150;
+      max-width:80ch;
+      margin:0 auto;
+      text-align:center;
+      font-size:clamp(1rem,1.15vw,1.25rem);
+      line-height:1.7
+    }
 
     @media (max-width:920px){
       .hero-grid{ grid-template-columns:1fr }
-      .lead{ font-size:1.05rem; line-height:1.65; padding:0 12px }
+      .lead{
+        font-size:1.05rem;
+        line-height:1.65;
+        padding:0 12px
+      }
     }
 
-    .bar{ background:linear-gradient(90deg,var(--brand-accent),var(--brand-accent-2)); color:#fff; text-align:center; font-weight:900; letter-spacing:.08em; padding:10px 0; text-transform:uppercase }
+    .bar{
+      background:linear-gradient(90deg,var(--brand-accent),var(--brand-accent-2));
+      color:#fff;
+      text-align:center;
+      font-weight:900;
+      letter-spacing:.08em;
+      padding:10px 0;
+      text-transform:uppercase
+    }
 
     /* Panel — white CTA button */
-    .panel{ background:linear-gradient(135deg,var(--brand-accent) 0%, #b932ff 40%, var(--brand-accent-2) 100%); color:#fff }
-    .panel .grid{ display:grid; grid-template-columns:1.1fr .9fr; gap:30px; align-items:center }
-    .checklist{ border:2px solid rgba(255,255,255,.7); border-radius:22px; padding:22px; }
+    .panel{
+      background:linear-gradient(135deg,var(--brand-accent) 0%, #b932ff 40%, var(--brand-accent-2) 100%);
+      color:#fff
+    }
+    .panel .grid{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:30px;
+      align-items:center
+    }
+    .checklist{
+      border:2px solid rgba(255,255,255,.7);
+      border-radius:22px;
+      padding:22px;
+    }
     .checklist li{ margin:.55rem 0 }
-    .panel .btn-glow{ background:#fff; color:#111; border:2px solid #111; box-shadow:0 6px 12px rgba(0,0,0,.15) }
-    .panel .btn-glow:hover{ background:linear-gradient(90deg,var(--brand-accent-2),var(--brand-accent)); color:#fff; border-color:transparent; transform:translateY(-3px); box-shadow:0 8px 28px rgba(255,46,126,.6) }
+    .panel .btn-glow{
+      background:#fff;
+      color:#111;
+      border:2px solid #111;
+      box-shadow:0 6px 12px rgba(0,0,0,.15)
+    }
+    .panel .btn-glow:hover{
+      background:linear-gradient(90deg,var(--brand-accent-2),var(--brand-accent));
+      color:#fff;
+      border-color:transparent;
+      transform:translateY(-3px);
+      box-shadow:0 8px 28px rgba(255,46,126,.6)
+    }
 
     /* Backdrop */
-    .modal-backdrop{ position:fixed; inset:0; background:rgba(0,0,0,.75); display:none; align-items:center; justify-content:center; padding:20px; z-index:1000 }
+    .modal-backdrop{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,.75);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+      z-index:1000;
+    }
 
     /* Modal — seamless gradient header */
-    .modal{ width:min(640px,100%); color:#0a0a0a; box-shadow:var(--shadow); overflow:hidden; border-radius:20px; background:#fff; position:relative; margin:0; padding:0; border:none }
-    .modal header{ position:relative; background:linear-gradient(90deg,var(--brand-accent),var(--brand-accent-2)); color:#fff; padding:22px; margin:0; border-top-left-radius:20px; border-top-right-radius:20px }
-    .modal header::after{ content:""; position:absolute; left:0; right:0; bottom:-1px; height:2px; background:inherit }
-    .modal .content{ background:#fff; padding:20px; position:relative; z-index:2 }
+    .modal{
+      width:min(640px,100%);
+      color:#0a0a0a;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      border-radius:20px;
+      background:#fff;
+      position:relative;
+      margin:0;
+      padding:0;
+      border:none
+    }
+    .modal header{
+      position:relative;
+      background:linear-gradient(90deg,var(--brand-accent),var(--brand-accent-2));
+      color:#fff;
+      padding:22px;
+      margin:0;
+      border-top-left-radius:20px;
+      border-top-right-radius:20px
+    }
+    .modal header::after{
+      content:"";
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:-1px;
+      height:2px;
+      background:inherit
+    }
+    .modal .content{
+      background:#fff;
+      padding:20px;
+      position:relative;
+      z-index:2
+    }
     .modal h3{ margin:0; font-size:1.4rem; line-height:1.3 }
     .row{ display:grid; gap:10px; margin-bottom:12px }
     label{ font-size:.9rem; font-weight:700 }
-    input, textarea{ width:100%; padding:12px 14px; border-radius:12px; border:1.5px solid #d1d5db; font-size:1rem }
-    .x{ position:absolute; top:10px; right:12px; background:#000000cc; color:#fff; border:none; border-radius:20px; line-height:1; cursor:pointer; width:28px; height:28px }
+    input, textarea{
+      width:100%;
+      padding:12px 14px;
+      border-radius:12px;
+      border:1.5px solid #d1d5db;
+      font-size:1rem
+    }
+    .x{
+      position:absolute;
+      top:10px;
+      right:12px;
+      background:#000000cc;
+      color:#fff;
+      border:none;
+      border-radius:20px;
+      line-height:1;
+      cursor:pointer;
+      width:28px;
+      height:28px
+    }
 
-    .btn-submit{ background:#111827; color:#fff; border:none; padding:14px 18px; border-radius:999px; font-weight:800; margin-top:10px; transition:all .22s ease }
-    .btn-submit:hover{ background:linear-gradient(90deg,var(--brand-accent-2),var(--brand-accent)); transform:translateY(-2px); box-shadow:0 8px 24px rgba(255,46,126,.45) }
+    .btn-submit{
+      background:#111827;
+      color:#fff;
+      border:none;
+      padding:14px 18px;
+      border-radius:999px;
+      font-weight:800;
+      margin-top:10px;
+      transition:all .22s ease
+    }
+    .btn-submit:hover{
+      background:linear-gradient(90deg,var(--brand-accent-2),var(--brand-accent));
+      transform:translateY(-2px);
+      box-shadow:0 8px 24px rgba(255,46,126,.45)
+    }
 
-    .modal .legal a{ display:inline-block; padding:2px 4px; border-radius:6px; text-decoration:underline; transition:all .2s ease; color:#111827 }
-    .modal .legal a:hover{ background:#00000010; color:#000; text-decoration:none; box-shadow:0 0 0 2px #00000020 inset }
+    .modal .legal a{
+      display:inline-block;
+      padding:2px 4px;
+      border-radius:6px;
+      text-decoration:underline;
+      transition:all .2s ease;
+      color:#111827
+    }
+    .modal .legal a:hover{
+      background:#00000010;
+      color:#000;
+      text-decoration:none;
+      box-shadow:0 0 0 2px #00000020 inset
+    }
 
-    footer{ color:#9aa3af; font-size:.9rem; padding:24px 0; text-align:center; background:#0a0a0a }
+    footer{
+      color:#9aa3af;
+      font-size:.9rem;
+      padding:24px 0;
+      text-align:center;
+      background:#0a0a0a
+    }
 
     /* Consent checkbox */
-    .agree{ display:flex; align-items:flex-start; gap:10px; margin:16px 0; font-size:.9rem; color:#374151; line-height:1.4; flex-wrap:wrap }
-    .agree input[type="checkbox"]{ transform:scale(1.4); margin-top:3px; accent-color:var(--brand-accent); cursor:pointer }
+    .agree{
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+      margin:16px 0;
+      font-size:.9rem;
+      color:#374151;
+      line-height:1.4;
+      flex-wrap:wrap
+    }
+    .agree input[type="checkbox"]{
+      transform:scale(1.4);
+      margin-top:3px;
+      accent-color:var(--brand-accent);
+      cursor:pointer
+    }
 
     /* Mobile tweaks + center checkbox/text */
     @media (max-width:600px){
@@ -107,20 +338,39 @@
       input, textarea{ font-size:1rem; padding:10px 12px }
       .btn-submit{ width:100%; padding:14px; font-size:.95rem }
 
-      .agree{ display:flex; flex-direction:column; align-items:center; text-align:center; gap:8px; margin:12px 0 10px }
+      .agree{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        text-align:center;
+        gap:8px;
+        margin:12px 0 10px
+      }
       .agree input[type="checkbox"]{
         appearance:none; -webkit-appearance:none;
         width:22px; height:22px; border:2px solid var(--brand-accent);
         border-radius:4px; display:flex; align-items:center; justify-content:center;
         margin:0 auto; background:#fff; cursor:pointer;
       }
-      .agree input[type="checkbox"]:checked::after{ content:"✔"; color:var(--brand-accent); font-size:16px; line-height:1 }
-      .agree span{ display:block; max-width:92%; line-height:1.45 }
+      .agree input[type="checkbox"]:checked::after{
+        content:"✔";
+        color:var(--brand-accent);
+        font-size:16px;
+        line-height:1
+      }
+      .agree span{
+        display:block;
+        max-width:92%;
+        line-height:1.45
+      }
     }
 
     /* Checklist checkmarks */
     .checklist li::before{
-      content:"✔"; color:#ffffff; font-weight:900; margin-right:8px;
+      content:"✔";
+      color:#ffffff;
+      font-weight:900;
+      margin-right:8px;
     }
   </style>
 
@@ -131,9 +381,9 @@
   <!-- Ribbon -->
   <div class="ribbon">
     <ul class="container">
-      <li>💸 Earn More.</li>
+      <li>💼 Everyday Legal Help.</li>
       <li>🛡️ Protect What Matters.</li>
-      <li>🕊️ Live Limitless.</li>
+      <li>🕊️ Worry Less. Live More.</li>
     </ul>
   </div>
 
@@ -141,21 +391,44 @@
   <section class="hero container">
     <div class="hero-grid">
       <div class="left">
-        <p class="pill" style="background:#1a1a1a;color:#cbd5e1">BUILD A FUTURE WITHOUT LIMITS</p>
-        <h1 class="headline">WORK FROM ANYWHERE <em>REVOLUTION.</em></h1>
-        <p class="sub">Discover how I’m helping everyday people find peace of mind and build real opportunities for
-          wealth, legacy, and freedom. No hype. Just results and a future they’re proud to build.</p>
+        <p class="pill" style="background:#1a1a1a;color:#cbd5e1">Empower Yourself. Protect Your Future.</p>
+        <h1 class="headline">EVERYDAY LEGAL <em>PROTECTION.</em></h1>
+        <p class="sub">
+          Discover how I'm helping everyday hard working people and small businesses in all 
+           <b>50 states and Canada.</b> protect their rights, 
+          their families, and their future with affortable legal coverage when life feels overwehlming.
+        </p>
 
+        <!-- VIDEO BLOCK STILL COMMENTED OUT (NO VIDEO) 
         <div class="video-card" style="margin-top:20px;text-align:center;">
-          <iframe src="https://www.youtube-nocookie.com/embed/yDUhlJnow_g?rel=0&modestbranding=1&autoplay=1&mute=1&playsinline=1"
-            title="Intro video" allow="autoplay; encrypted-media" style="width:100%;height:315px;border:0" allowfullscreen></iframe>
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/yDUhlJnow_g?rel=0&modestbranding=1&autoplay=1&mute=1&playsinline=1"
+            title="Intro video"
+            allow="autoplay; encrypted-media"
+            style="width:100%;height:315px;border:0"
+            allowfullscreen>
+          </iframe>
           <div style="margin:22px 0 26px;display:flex;flex-direction:column;align-items:center;gap:14px;">
-            <button class="btn btn-primary" data-open-modal>GET ON MY RADAR NOW</button>
+            <button class="btn btn-primary" data-open-modal>GET YOUR LEGAL OPTIONS</button>
           </div>
         </div>
+        -->
+
+        <!-- Simple CTA instead of video -->
+        <div style="margin-top:24px; display:flex; justify-content:center;">
+          <a
+            class="btn btn-primary btn-link"
+            href="https://alapice.legalshieldassociate.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            FIND THE RIGHT LEGAL PLAN FOR YOU
+          </a>
+        </div>
       </div>
+
       <div>
-        <img src="images/hero3.png.webp" alt="Your photo" style="border-radius:24px" />
+        <img src="images/hero3.png.webp" alt="Aysha Lapice — your legal protection guide" style="border-radius:24px" />
       </div>
     </div>
   </section>
@@ -163,44 +436,58 @@
   <!-- White Section -->
   <section class="section">
     <div class="container center">
-      <h2>ALL POTENTIAL. <em style="font-style:italic;">NO BARRIERS.</em></h2>
+      <h2>LIFE DOESN'T WAIT. <em style="font-style:italic;">NEITHER SHOULD YOU.</em></h2>
       <div class="copy">
-        <p class="lead">Are you tired of jobs that cap your income, side hustles that drain your energy, or “opportunities” full of hidden costs?</p>
-        <p class="lead">Let’s be real: working harder doesn’t always mean getting ahead. Endless hours, constant stress, and minimal reward.</p>
-        <p class="lead">This business takes a smarter approach giving everyday people a proven system to earn lasting income, enjoy flexibility, and create the life they truly want. A proven path to building lasting wealth and leaving a legacy.</p>
+        <p class="lead">Ever worry about getting pulled over, served with legal papers, or handed a contract you don't fully understand?</p>
+        <p class="lead">Legal problems don’t care how "busy" your life is. They can turn a normal week upside down in an instant.</p>
+        <p class="lead">
+          With legal coverage, you gain access to a dedicated law firms in all <b>50 states and Canada</b> for your family or small business. From document and contract review, 
+          traffic tickets, will and trust preperation, landlord or custody questions, employment law support, and more. You will have expert guidance and protection 
+          for a predictable monthly price, instead of unpredictable hourly legal fees.
+        </p>
       </div>
       <div style="margin-top:28px; display:flex; justify-content:center;">
-        <button class="btn btn-glow" data-open-modal>SHOW ME HOW</button>
+        <a
+          class="btn btn-glow btn-link"
+          href="https://alapice.legalshieldassociate.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          YOUR LEGAL PLAN AWAITS
+        </a>
       </div>
     </div>
   </section>
 
-  <div class="bar">▶ Instantly access the video and discover what’s possible.</div>
+  <!-- <div class="bar">▶ Get a personal LegalShield overview and see how it protects your family.</div> -->
 
   <!-- Panel -->
   <section class="panel">
     <div class="container" style="padding:40px 20px">
       <div class="grid">
         <div>
-          <h2 style="margin:0 0 8px">WATCH THE VIDEO INSTANTLY…</h2>
-          <p style="opacity:.92">No need to wait for a live call — get the inside look instantly and see how this works for real people like you.</p>
+          <h2 style="margin:0 0 8px">Connect with Me to Protect Your Family or Business</h2>
+          <p style="opacity:.92">
+            Just a conversation with me to understand your needs and select the right plan for you!
+          </p>
           <div style="margin-top:16px">
-            <button class="btn btn-glow" data-open-modal>I'M READY, WATCH NOW</button>
+            <button class="btn btn-glow" data-open-modal>I'M READY TO TALK</button>
           </div>
         </div>
 
         <div class="checklist">
-          <h3 style="margin-top:0; margin-bottom:12px; font-weight:800;">Real Stories. Real Results.</h3>
+          <h3 style="margin-top:0; margin-bottom:12px; font-weight:800;">Life Happens. Be Covered.</h3>
           <ul style="list-style:none; padding:0; margin:0; display:grid; gap:12px;">
-            <li>Everyday people earning <strong>$1,000–$5,000</strong> in their first week</li>
-            <li><strong>$200</strong> in-person paid training to get you started</li>
-            <li>Over <strong>$500&nbsp;million</strong> already paid in commissions to associates</li>
+            <li>Everyday individuals and small business owners are getting answers to legal questions without worrying about expensive hourly legal fees.</li>
+            <li>Unlimited personal consultations with a dedicated provider law firm for covered issues.</li>
+            <li>Assitance with establishing wills, living wills, and powers of attorney.</li>
           </ul>
           <p style="margin-top:18px;">
-            We’re building <strong>wealth, legacy, and true residual income</strong> through a <strong>50-year-old company</strong> with a legacy that speaks for itself.
+            Providing reliable legal support for decades, helping families and small businesses navigate issues that used to feel out of reach.
           </p>
           <p style="margin-top:10px;">
-            Build a solid book of business that pays you <strong>residually for years to come</strong>, creating the freedom, flexibility, and security you deserve.
+            Together we’ll focus on protecting what matters most. Yourself, your rights, and your peace of mind so you can
+            move through life with more confidence and less fear of “what if.”
           </p>
         </div>
       </div>
@@ -218,8 +505,10 @@
     <div class="modal">
       <header>
         <button class="x" aria-label="Close" data-close>×</button>
-        <h3>YOU ARE ONE STEP AWAY…</h3>
-        <p style="margin:.25rem 0 0;opacity:.9">You are one step away from hearing about the opportunity that will create <strong>100 Six-Figure Earners.</strong></p>
+        <h3>ONE STEP AWAY…</h3>
+        <p style="margin:.25rem 0 0;opacity:.9">
+          You’re one conversation away from discovering how you can protect you, your family, your business, and your future!
+        </p>
       </header>
       <div class="content">
         <form id="leadForm" name="lead" method="POST" data-netlify="true" netlify-honeypot="bot-field">
@@ -245,7 +534,10 @@
 
           <label class="agree">
             <input type="checkbox" name="mkt" />
-            <span>I consent to receive marketing text messages from Aysha Empowers. Msg &amp; data rates may apply. Reply STOP to opt out.</span>
+            <span>
+              I consent to receive legal education and follow-up text messages from Aysha Empowers.
+              Msg &amp; data rates may apply. Reply STOP to opt out.
+            </span>
           </label>
 
           <p class="legal">
@@ -260,7 +552,7 @@
     </div>
   </div>
 
-  <!-- ===== Hidden fallback form (ensures Netlify detects it) ===== -->
+  <!-- Hidden fallback form so Netlify sees it -->
   <form name="lead" netlify netlify-honeypot="bot-field" hidden>
     <input type="text"  name="name">
     <input type="tel"   name="phone">
@@ -307,7 +599,6 @@
       utilsScript: 'https://cdn.jsdelivr.net/npm/intl-tel-input@18.5.6/build/js/utils.js',
     });
 
-    // Wait for utils to be ready, then normalize placeholder/value if present
     iti.promise.then(() => {
       const placeholder = iti.getNumberPlaceholder();
       if (placeholder) phoneInput.placeholder = placeholder;
@@ -316,7 +607,6 @@
       }
     });
 
-    // Submit -> validate + fill hidden E.164, then Netlify POST and show countdown UI
     (function () {
       const form = document.getElementById('leadForm');
       if (!form) return;
@@ -330,14 +620,12 @@
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
-        // phone validation
         phoneError.style.display = 'none';
         if (phoneInput.value.trim() && !iti.isValidNumber()) {
           phoneError.style.display = 'block';
           phoneInput.focus();
           return;
         }
-        // write clean E.164
         phoneE164.value = iti.getNumber();
 
         const fd = new FormData(form);
@@ -350,15 +638,14 @@
             body: encodeFormData(fd)
           });
 
-          // Success UI + countdown, then redirect to your custom domain
           const container = form.parentElement;
           container.innerHTML = `
             <div style="text-align:center; padding:20px 10px;">
-              <h3 style="margin:0 0 8px; color:#065f46;">Email sent ✅</h3>
+              <h3 style="margin:0 0 8px; color:#065f46;">Message sent ✅</h3>
               <p style="margin:0 0 16px; color:#374151;">
                 Returning to Aysha Empowers in <strong id="countdown">3</strong>...
               </p>
-              <p style="font-size:.95rem; color:#6b7280;">Thanks! You're on the list — check your inbox shortly.</p>
+              <p style="font-size:.95rem; color:#6b7280;">Thanks! I’ll send your LegalShield info and next steps shortly.</p>
             </div>
           `;
           let secs = 3;
@@ -382,7 +669,6 @@
   </script>
 
   <script>
-    // Helper to open the modal and focus the first field
     function openLeadModal() {
       const nameField = document.getElementById('name');
       const backdrop = document.getElementById('leadModal');
@@ -391,7 +677,6 @@
       if (nameField) nameField.focus();
     }
 
-    // Auto-open once per day (gentle delay)
     (function () {
       const KEY = 'leadModal_suppress_until';
       const now = Date.now();
@@ -401,7 +686,6 @@
         setTimeout(openLeadModal, 600);
       }
 
-      // Snooze for 24h on close
       document.querySelectorAll('[data-close], .modal-backdrop]').forEach(el => {
         el.addEventListener('click', (e) => {
           if (e.target.classList.contains('modal-backdrop') || el.hasAttribute('data-close')) {
