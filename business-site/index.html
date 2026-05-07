@@ -3,29 +3,33 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Protect your family and business with affordable legal coverage in all 50 states and Canada. Connect with Aysha Empowers today.">
+  <meta name="description" content="Protect your family and business with affordable legal coverage in all 50 states and Canada. Connect with Aysha Powers today.">
   <title>Family Legal Protection &bull; Aysha Empowers</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.5.6/build/css/intlTelInput.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-  /* ── DESIGN TOKENS ── */
+  /* ── TOKENS ── */
   :root {
-    --bg:      #0a0a0a;
-    --surface: #111116;
-    --accent:  #a020f0;
-    --hot:     #ff2e7e;
-    --text:    #ffffff;
-    --muted:   #9ca3af;
-    --border:  rgba(255,255,255,.09);
-    --grad:    linear-gradient(135deg, var(--accent), var(--hot));
-    --shadow:  0 20px 60px rgba(0,0,0,.45);
-    --r:       14px;
-    --r-lg:    22px;
-    --f:       'Inter', system-ui, -apple-system, sans-serif;
+    --purple:       #5B21B6;
+    --purple-dark:  #3B0D8C;
+    --purple-light: #EDE9FE;
+    --purple-mid:   #7C3AED;
+    --gold:         #D97706;
+    --text:         #111827;
+    --muted:        #6B7280;
+    --border:       #E5E7EB;
+    --bg:           #FFFFFF;
+    --bg-soft:      #F9FAFB;
+    --bg-purple:    #F5F3FF;
+    --r:            10px;
+    --r-lg:         16px;
+    --f:            'Inter', system-ui, -apple-system, sans-serif;
+    --shadow-sm:    0 1px 3px rgba(0,0,0,.08);
+    --shadow-md:    0 4px 16px rgba(91,33,182,.12);
+    --shadow-lg:    0 12px 40px rgba(91,33,182,.18);
   }
 
   /* ── RESET ── */
@@ -38,870 +42,582 @@
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
   }
-  img  { max-width: 100%; height: auto; display: block; }
-  a    { color: inherit; text-decoration: none; }
-  ul   { list-style: none; }
-  button { font-family: var(--f); cursor: pointer; border: none; background: none; }
+  img { max-width: 100%; height: auto; display: block; }
+  a   { color: inherit; text-decoration: none; }
+  ul  { list-style: none; }
 
   /* ── LAYOUT ── */
-  .wrap   { max-width: 1140px; margin: 0 auto; padding: 0 20px; }
-  .pad    { padding: 72px 0; }
+  .wrap   { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+  .pad    { padding: 80px 0; }
   .pad-sm { padding: 48px 0; }
 
-  /* ── RIBBON ── */
-  .ribbon {
-    background: var(--grad);
-    padding: 11px 0;
-    overflow: hidden;
-  }
-  .ribbon-row {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 8px 36px;
-  }
-  .ribbon-item {
-    display: flex;
-    align-items: center;
-    gap: 7px;
-    font-size: .78rem;
-    font-weight: 700;
-    letter-spacing: .12em;
-    text-transform: uppercase;
+  /* ── TOP BAR ── */
+  .topbar {
+    background: var(--purple);
+    padding: 10px 0;
+    text-align: center;
+    font-size: .82rem;
+    font-weight: 600;
     color: #fff;
-    white-space: nowrap;
+    letter-spacing: .03em;
   }
-  .rb-dot {
-    width: 5px; height: 5px;
-    border-radius: 50%;
-    background: rgba(255,255,255,.55);
-    flex-shrink: 0;
-  }
+  .topbar a { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
 
   /* ── NAV ── */
-  .nav { padding: 16px 0; border-bottom: 1px solid var(--border); }
-  .nav-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
+  .nav {
+    background: #fff;
+    border-bottom: 1px solid var(--border);
+    padding: 18px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--shadow-sm);
   }
-  .nav-brand {
-    font-size: 1.1rem;
-    font-weight: 900;
-    background: var(--grad);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .nav-brand { display: flex; align-items: center; gap: 10px; }
+  .nav-brand-dot {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    background: var(--purple);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    color: #fff;
   }
+  .nav-brand-name { font-size: 1.05rem; font-weight: 800; color: var(--purple); line-height: 1.1; }
+  .nav-brand-sub  { font-size: .7rem; color: var(--muted); font-weight: 500; letter-spacing: .04em; text-transform: uppercase; }
+  .nav-right { display: flex; align-items: center; gap: 10px; }
 
   /* ── BUTTONS ── */
   .btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 13px 26px;
-    border-radius: 999px;
-    font-family: var(--f);
-    font-size: .85rem;
-    font-weight: 800;
-    letter-spacing: .05em;
-    text-transform: uppercase;
-    cursor: pointer;
-    border: none;
-    transition: transform .2s, box-shadow .2s, background .2s, color .2s;
-    white-space: nowrap;
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    padding: 13px 28px; border-radius: 999px;
+    font-family: var(--f); font-size: .88rem; font-weight: 700;
+    cursor: pointer; border: none;
+    transition: transform .18s, box-shadow .18s, background .18s;
+    white-space: nowrap; text-decoration: none;
   }
   .btn:hover { transform: translateY(-2px); }
-
-  .btn-grad {
-    background: var(--grad);
-    color: #fff;
-    box-shadow: 0 8px 22px rgba(160,32,240,.3);
-  }
-  .btn-grad:hover { box-shadow: 0 12px 30px rgba(255,46,126,.45); }
-
-  .btn-ghost {
-    background: transparent;
-    color: var(--text);
-    border: 1.5px solid rgba(255,255,255,.22);
-  }
-  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
-
-  .btn-white {
-    background: #fff;
-    color: #111;
-    box-shadow: 0 4px 12px rgba(0,0,0,.15);
-  }
-  .btn-white:hover {
-    background: var(--grad);
-    color: #fff;
-    box-shadow: 0 8px 22px rgba(255,46,126,.4);
-  }
+  .btn-purple { background: var(--purple); color: #fff; box-shadow: 0 4px 14px rgba(91,33,182,.35); }
+  .btn-purple:hover { background: var(--purple-dark); box-shadow: 0 8px 24px rgba(91,33,182,.45); }
+  .btn-gold   { background: var(--gold); color: #fff; box-shadow: 0 4px 14px rgba(217,119,6,.35); }
+  .btn-gold:hover { background: #B45309; box-shadow: 0 8px 24px rgba(217,119,6,.45); }
+  .btn-outline { background: transparent; color: var(--purple); border: 2px solid var(--purple); }
+  .btn-outline:hover { background: var(--purple-light); }
+  .btn-white  { background: #fff; color: var(--purple); box-shadow: 0 4px 14px rgba(0,0,0,.12); }
+  .btn-white:hover { background: var(--purple-light); }
 
   /* ── HERO ── */
-  .hero { padding: 60px 0 56px; }
-  .hero-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 52px;
-    align-items: center;
+  .hero { background: linear-gradient(160deg, var(--bg-purple) 0%, #fff 60%); padding: 72px 0 64px; }
+  .hero-grid { display: grid; grid-template-columns: 1fr 420px; gap: 60px; align-items: center; }
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--purple-light); border: 1px solid #DDD6FE;
+    border-radius: 999px; padding: 6px 14px;
+    font-size: .78rem; font-weight: 600; color: var(--purple);
+    margin-bottom: 20px; letter-spacing: .03em;
   }
-  .badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    padding: 7px 16px;
-    font-size: .8rem;
-    font-weight: 600;
-    color: var(--muted);
-    margin-bottom: 20px;
+  .hero-tag-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--purple-mid); }
+  .hero-headline {
+    font-size: clamp(2rem, 4.5vw, 3.4rem); font-weight: 800;
+    line-height: 1.08; letter-spacing: -.02em; color: var(--text); text-wrap: balance;
   }
-  .badge-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+  .hero-headline em { font-style: normal; color: var(--purple); }
+  .hero-sub { margin-top: 18px; font-size: 1.05rem; color: var(--muted); line-height: 1.75; max-width: 48ch; }
+  .hero-actions { display: flex; gap: 12px; margin-top: 32px; flex-wrap: wrap; align-items: center; }
+  .hero-trust { display: flex; align-items: center; gap: 8px; margin-top: 28px; font-size: .82rem; color: var(--muted); }
+  .hero-trust-icon { color: var(--gold); }
 
-  .headline {
-    font-size: clamp(2.2rem, 4.8vw, 3.8rem);
-    font-weight: 900;
-    line-height: 1.04;
-    letter-spacing: -.01em;
-    text-wrap: balance;
+  /* ── PHOTO CARD ── */
+  .photo-card { position: relative; }
+  .photo-card-img {
+    border-radius: var(--r-lg); width: 100%; aspect-ratio: 3/4;
+    object-fit: cover; object-position: top center;
+    box-shadow: var(--shadow-lg);
   }
-  .headline-em {
-    background: var(--grad);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+  .photo-card-badge {
+    position: absolute; bottom: 20px; left: -20px;
+    background: #fff; border-radius: var(--r); padding: 12px 16px;
+    box-shadow: 0 8px 24px rgba(0,0,0,.14);
+    display: flex; align-items: center; gap: 10px; min-width: 200px;
   }
-  .hero-sub {
-    color: var(--muted);
-    font-size: 1rem;
-    line-height: 1.72;
-    margin-top: 16px;
-    max-width: 50ch;
+  .pcb-icon {
+    width: 38px; height: 38px; border-radius: 9px;
+    background: var(--purple-light); color: var(--purple);
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
   }
-  .hero-actions {
-    display: flex;
-    gap: 12px;
-    margin-top: 28px;
-    flex-wrap: wrap;
-  }
-  .hero-img-wrap { position: relative; }
-  .hero-img-glow {
-    position: absolute;
-    inset: -20px;
-    background: var(--grad);
-    opacity: .15;
-    filter: blur(48px);
-    border-radius: 999px;
-    z-index: 0;
-  }
-  .hero-img-wrap img {
-    position: relative;
-    z-index: 1;
-    border-radius: var(--r-lg);
-    width: 100%;
-    aspect-ratio: 3/4;
-    object-fit: cover;
-    object-position: top center;
-  }
+  .pcb-label { font-size: .72rem; color: var(--muted); font-weight: 500; }
+  .pcb-value { font-size: .88rem; font-weight: 700; color: var(--text); }
 
-  /* ── STATS BAR ── */
-  .stats {
-    background: var(--surface);
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-  }
-  .stats-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    text-align: center;
-  }
-  .stat {
-    padding: 22px 12px;
-    border-right: 1px solid var(--border);
-  }
+  /* ── STATS ── */
+  .stats { background: var(--purple); padding: 36px 0; }
+  .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); text-align: center; }
+  .stat { padding: 8px 16px; border-right: 1px solid rgba(255,255,255,.2); }
   .stat:last-child { border-right: none; }
-  .stat-n {
-    font-size: 2rem;
-    font-weight: 900;
-    line-height: 1;
-    background: var(--grad);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  .stat-l {
-    font-size: .72rem;
-    font-weight: 700;
-    letter-spacing: .1em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-top: 4px;
-  }
+  .stat-n { font-size: 2.2rem; font-weight: 800; color: #fff; line-height: 1; }
+  .stat-l { font-size: .75rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.75); margin-top: 5px; }
 
-  /* ── WHITE SECTION ── */
-  .section-white { background: #fff; color: #0f172a; }
-  .section-white h2 {
-    font-size: clamp(1.7rem, 3.5vw, 2.6rem);
-    font-weight: 900;
-    line-height: 1.1;
-    text-wrap: balance;
-    text-align: center;
+  /* ── SECTION HEADERS ── */
+  .section-tag {
+    display: inline-block; background: var(--purple-light); color: var(--purple);
+    font-size: .75rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+    padding: 5px 12px; border-radius: 999px; margin-bottom: 12px;
   }
-  .section-white h2 em { font-style: italic; }
-  .lead {
-    color: #4b5563;
-    text-align: center;
-    font-size: clamp(.95rem, 1.1vw, 1.1rem);
-    line-height: 1.78;
-    max-width: 72ch;
-    margin: 0 auto;
-  }
+  .section-title { font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 800; line-height: 1.15; letter-spacing: -.01em; text-wrap: balance; }
+  .section-sub { margin-top: 12px; color: var(--muted); font-size: 1rem; line-height: 1.75; max-width: 60ch; }
+  .center { text-align: center; }
+  .center .section-sub { margin-left: auto; margin-right: auto; }
 
-  /* ── BENEFITS GRID ── */
-  .benefits-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    margin-top: 40px;
+  /* ── BENEFITS ── */
+  .benefits { background: var(--bg-soft); }
+  .benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 48px; }
+  .benefit-card {
+    background: #fff; border: 1px solid var(--border); border-radius: var(--r-lg); padding: 28px;
+    transition: box-shadow .2s, transform .2s;
   }
-  .benefit {
-    background: #f8f9fc;
-    border: 1px solid #e5e7eb;
-    border-radius: var(--r);
-    padding: 22px;
-  }
+  .benefit-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
   .b-icon {
-    width: 44px; height: 44px;
-    border-radius: 12px;
-    background: linear-gradient(135deg, #f3e8ff, #fce7f3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.3rem;
-    margin-bottom: 12px;
+    width: 48px; height: 48px; border-radius: 12px;
+    background: var(--purple-light); color: var(--purple);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 16px; font-size: 1.4rem;
   }
-  .b-title { font-size: .92rem; font-weight: 800; color: #0f172a; margin-bottom: 6px; }
-  .b-desc  { font-size: .83rem; color: #6b7280; line-height: 1.58; }
+  .b-title { font-size: .95rem; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+  .b-desc  { font-size: .85rem; color: var(--muted); line-height: 1.65; }
 
-  /* ── PANEL ── */
-  .panel { background: var(--grad); color: #fff; }
-  .panel-grid {
-    display: grid;
-    grid-template-columns: 1.1fr .9fr;
-    gap: 40px;
-    align-items: center;
+  /* ── ABOUT ── */
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .about-points { margin-top: 28px; display: flex; flex-direction: column; gap: 16px; }
+  .about-point { display: flex; gap: 14px; align-items: flex-start; }
+  .ap-dot {
+    width: 24px; height: 24px; border-radius: 50%;
+    background: var(--purple-light); color: var(--purple);
+    display: flex; align-items: center; justify-content: center;
+    font-size: .75rem; font-weight: 800; flex-shrink: 0; margin-top: 2px;
   }
-  .panel h2 {
-    font-size: clamp(1.5rem, 3vw, 2.2rem);
-    font-weight: 900;
-    margin-bottom: 12px;
-    text-wrap: balance;
+  .ap-text { font-size: .92rem; color: var(--text); line-height: 1.65; }
+  .ap-text strong { color: var(--purple); font-weight: 700; }
+  .about-img-wrap { position: relative; }
+  .about-img { border-radius: var(--r-lg); width: 100%; aspect-ratio: 4/3; object-fit: cover; object-position: top; box-shadow: var(--shadow-lg); }
+  .about-img-accent {
+    position: absolute; top: -16px; right: -16px;
+    width: 100px; height: 100px; border-radius: var(--r-lg);
+    background: var(--purple-light); border: 3px solid var(--purple);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    box-shadow: var(--shadow-sm);
   }
-  .panel-sub { opacity: .92; line-height: 1.68; margin-bottom: 24px; font-size: .97rem; }
-  .check-box {
-    background: rgba(255,255,255,.13);
-    border: 1.5px solid rgba(255,255,255,.3);
-    border-radius: var(--r-lg);
-    padding: 24px 26px;
-  }
-  .check-box h3 { font-size: 1rem; font-weight: 800; margin-bottom: 16px; }
-  .check-item { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 14px; }
-  .check-item:last-child { margin-bottom: 0; }
-  .ci-dot {
-    width: 22px; height: 22px;
-    border-radius: 50%;
-    flex-shrink: 0;
-    background: rgba(255,255,255,.22);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: .8rem;
-    margin-top: 1px;
-  }
-  .ci-text { font-size: .88rem; line-height: 1.56; opacity: .95; }
+  .aia-n { font-size: 1.6rem; font-weight: 800; color: var(--purple); line-height: 1; }
+  .aia-l { font-size: .65rem; font-weight: 700; color: var(--purple); text-transform: uppercase; letter-spacing: .06em; text-align: center; line-height: 1.3; margin-top: 4px; }
 
-  /* ── INSTAGRAM BUTTON (nav) ── */
-  .nav-ig {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 38px; height: 38px;
-    border-radius: 10px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    color: var(--muted);
-    transition: background .2s, color .2s, transform .2s, border-color .2s;
-    flex-shrink: 0;
+  /* ── FORM SECTION ── */
+  .form-section { background: var(--bg-purple); }
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+  .form-left { padding-top: 8px; }
+  .form-perks { margin-top: 32px; display: flex; flex-direction: column; gap: 14px; }
+  .form-perk { display: flex; gap: 12px; align-items: flex-start; }
+  .fp-check {
+    width: 22px; height: 22px; border-radius: 50%;
+    background: var(--purple); color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: .72rem; flex-shrink: 0; margin-top: 2px;
   }
-  .nav-ig:hover {
-    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
-    color: #fff;
-    border-color: transparent;
-    transform: translateY(-2px);
-  }
-  .nav-right { display: flex; align-items: center; gap: 10px; }
+  .fp-text { font-size: .92rem; color: var(--text); line-height: 1.65; }
 
-  /* ── FOOTER ── */
-  footer {
-    background: #050505;
-    border-top: 1px solid var(--border);
-    padding: 26px 0;
-    text-align: center;
-    font-size: .83rem;
-    color: var(--muted);
-  }
-  footer a {
-    color: var(--muted);
-    text-decoration: underline;
-    text-underline-offset: 3px;
-  }
-  footer a:hover { color: #fff; }
-
-  /* ── MODAL OVERLAY ── */
-  .modal-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,.72);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    padding: 16px;
-    z-index: 9999;
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-  }
-  .modal-overlay.open { display: flex; }
-
-  /* ── MODAL BOX ── */
-  .modal {
-    width: min(560px, 100%);
-    background: #fff;
-    border-radius: var(--r-lg);
-    overflow: hidden;
-    box-shadow: 0 30px 80px rgba(0,0,0,.55);
-    position: relative;
-    animation: slideUp .28s ease;
-  }
-  @keyframes slideUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-  .modal-hd {
-    background: var(--grad);
-    color: #fff;
-    padding: 22px 24px 20px;
-  }
-  .modal-hd h3 { font-size: 1.3rem; font-weight: 900; margin: 0 36px 6px 0; line-height: 1.2; }
-  .modal-hd p  { font-size: .87rem; opacity: .9; margin: 0; line-height: 1.5; }
-  .modal-x {
-    position: absolute;
-    top: 13px; right: 13px;
-    width: 30px; height: 30px;
-    border-radius: 50%;
-    background: rgba(0,0,0,.28);
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1rem;
-    transition: background .2s;
-    cursor: pointer;
-    border: none;
-  }
-  .modal-x:hover { background: rgba(0,0,0,.5); }
-  .modal-body { padding: 22px 22px 20px; background: #fff; }
-
-  /* ── FORM ── */
-  .f-row { margin-bottom: 14px; }
-  .f-lbl {
-    display: block;
-    font-size: .75rem;
-    font-weight: 700;
-    color: #374151;
-    letter-spacing: .06em;
-    text-transform: uppercase;
-    margin-bottom: 5px;
-  }
+  /* ── FORM CARD ── */
+  .form-card { background: #fff; border-radius: var(--r-lg); padding: 36px; box-shadow: var(--shadow-lg); border: 1px solid #DDD6FE; }
+  .form-card-title { font-size: 1.15rem; font-weight: 800; color: var(--text); margin-bottom: 4px; }
+  .form-card-sub { font-size: .85rem; color: var(--muted); margin-bottom: 24px; line-height: 1.5; }
+  .f-row { margin-bottom: 16px; }
+  .f-lbl { display: block; font-size: .75rem; font-weight: 700; color: var(--text); letter-spacing: .05em; text-transform: uppercase; margin-bottom: 6px; }
   .f-in {
-    width: 100%;
-    padding: 11px 15px;
-    border-radius: 12px;
-    border: 1.5px solid #e5e7eb;
-    font-family: var(--f);
-    font-size: .93rem;
-    color: #111;
-    background: #f9fafb;
-    outline: none;
+    width: 100%; padding: 12px 16px; border-radius: var(--r);
+    border: 1.5px solid var(--border); font-family: var(--f); font-size: .93rem;
+    color: var(--text); background: var(--bg-soft); outline: none;
     transition: border-color .18s, box-shadow .18s;
   }
-  .f-in:focus {
-    border-color: var(--accent);
-    box-shadow: 0 0 0 3px rgba(160,32,240,.12);
-    background: #fff;
+  .f-in:focus { border-color: var(--purple); box-shadow: 0 0 0 3px rgba(91,33,182,.1); background: #fff; }
+  .f-in::placeholder { color: #9CA3AF; }
+  textarea.f-in { resize: vertical; min-height: 90px; }
+  .consent { display: flex; gap: 10px; align-items: flex-start; margin: 18px 0 14px; }
+  .consent input[type="checkbox"] { width: 17px; height: 17px; min-width: 17px; accent-color: var(--purple); margin-top: 3px; cursor: pointer; flex-shrink: 0; }
+  .consent-txt { font-size: .8rem; color: var(--muted); line-height: 1.55; }
+  .f-legal { font-size: .76rem; color: #9CA3AF; margin-bottom: 16px; line-height: 1.55; }
+  .f-legal a { color: var(--purple); text-decoration: underline; text-underline-offset: 2px; }
+  .btn-submit {
+    width: 100%; padding: 14px; border-radius: 999px;
+    background: var(--purple); color: #fff; font-family: var(--f);
+    font-size: .93rem; font-weight: 700; border: none; cursor: pointer;
+    box-shadow: 0 4px 14px rgba(91,33,182,.35);
+    transition: background .18s, transform .18s, box-shadow .18s;
   }
-  /* intl-tel-input wrapper */
-  .iti { display: block; width: 100%; }
-  .ph-err { display: none; color: #dc2626; font-size: .77rem; margin-top: 5px; }
+  .btn-submit:hover { background: var(--purple-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(91,33,182,.45); }
+  .form-success { text-align: center; padding: 32px 16px; }
+  .form-success-icon { font-size: 3rem; margin-bottom: 12px; }
+  .form-success h3 { font-size: 1.2rem; font-weight: 800; color: var(--purple); margin-bottom: 8px; }
+  .form-success p { color: var(--muted); font-size: .92rem; line-height: 1.65; }
 
-  .consent { display: flex; gap: 10px; align-items: flex-start; margin: 16px 0 12px; }
-  .consent input[type="checkbox"] {
-    width: 17px; height: 17px; min-width: 17px;
-    accent-color: var(--accent);
-    margin-top: 3px;
-    cursor: pointer;
-    padding: 0;
-    flex-shrink: 0;
-  }
-  .consent-txt { font-size: .8rem; color: #4b5563; line-height: 1.5; }
+  /* ── CTA BANNER ── */
+  .cta-banner { background: var(--purple); padding: 56px 0; text-align: center; }
+  .cta-banner h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; color: #fff; text-wrap: balance; margin-bottom: 12px; }
+  .cta-banner p { color: rgba(255,255,255,.82); font-size: 1rem; line-height: 1.7; max-width: 52ch; margin: 0 auto 28px; }
 
-  .f-legal { font-size: .76rem; color: #9ca3af; margin-bottom: 14px; line-height: 1.5; }
-  .f-legal a { color: #7c3aed; text-decoration: underline; text-underline-offset: 2px; }
-
-  .btn-sub {
-    width: 100%;
-    padding: 13px;
-    border-radius: 999px;
-    background: var(--grad);
-    color: #fff;
-    font-family: var(--f);
-    font-size: .88rem;
-    font-weight: 800;
-    letter-spacing: .04em;
-    text-transform: uppercase;
-    border: none;
-    cursor: pointer;
-    box-shadow: 0 8px 22px rgba(160,32,240,.3);
-    transition: transform .2s, box-shadow .2s;
-  }
-  .btn-sub:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 28px rgba(255,46,126,.45);
-  }
+  /* ── FOOTER ── */
+  footer { background: #0F0720; padding: 28px 0; text-align: center; font-size: .83rem; color: rgba(255,255,255,.5); }
+  footer a { color: rgba(255,255,255,.65); text-decoration: underline; text-underline-offset: 3px; transition: color .15s; }
+  footer a:hover { color: #fff; }
+  .footer-inner { display: flex; flex-direction: column; gap: 8px; align-items: center; }
+  .footer-links { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
 
   /* ── RESPONSIVE ── */
-  @media (max-width: 900px) {
-    .hero-grid         { grid-template-columns: 1fr; gap: 32px; }
-    .hero-img-wrap     { order: -1; max-width: 340px; margin: 0 auto; }
-    .hero-sub          { max-width: 100%; }
-    .hero-actions      { justify-content: center; }
-    .headline          { text-align: center; }
-    .badge             { display: none; }
-    .benefits-grid     { grid-template-columns: repeat(2, 1fr); }
-    .panel-grid        { grid-template-columns: 1fr; }
+  @media (max-width: 960px) {
+    .hero-grid    { grid-template-columns: 1fr; gap: 40px; }
+    .photo-card   { max-width: 360px; margin: 0 auto; }
+    .hero-sub     { max-width: 100%; }
+    .about-grid   { grid-template-columns: 1fr; gap: 40px; }
+    .about-img-wrap { order: -1; max-width: 480px; }
+    .form-grid    { grid-template-columns: 1fr; gap: 40px; }
+    .benefits-grid { grid-template-columns: repeat(2, 1fr); }
+    .photo-card-badge { left: 0; }
   }
 
-  @media (max-width: 600px) {
-    .pad               { padding: 48px 0; }
-    .wrap              { padding: 0 16px; }
-    .ribbon-item       { font-size: .72rem; }
-    .benefits-grid     { grid-template-columns: 1fr; gap: 10px; }
-    .stats-grid        { grid-template-columns: 1fr; }
-    .stat              { border-right: none; border-bottom: 1px solid var(--border); }
-    .stat:last-child   { border-bottom: none; }
-    /* Bottom sheet on small screens */
-    .modal-overlay     { align-items: flex-end; padding: 0; }
-    .modal {
-      width: 100%;
-      border-radius: var(--r-lg) var(--r-lg) 0 0;
-      max-height: 92dvh;
-      overflow-y: auto;
-    }
-    @keyframes slideUp {
-      from { transform: translateY(100%); }
-      to   { transform: translateY(0); }
-    }
-  }
-
-  @media (max-width: 380px) {
-    .btn { padding: 12px 18px; font-size: .8rem; }
+  @media (max-width: 620px) {
+    .pad          { padding: 56px 0; }
+    .wrap         { padding: 0 18px; }
+    .hero         { padding: 48px 0 40px; }
+    .hero-actions { flex-direction: column; align-items: stretch; }
+    .hero-actions .btn { justify-content: center; }
+    .benefits-grid { grid-template-columns: 1fr; gap: 14px; }
+    .stats-grid   { grid-template-columns: 1fr; }
+    .stat         { border-right: none; border-bottom: 1px solid rgba(255,255,255,.2); padding: 16px; }
+    .stat:last-child { border-bottom: none; }
+    .form-card    { padding: 24px 20px; }
+    .about-img-accent { display: none; }
+    .nav-right .btn-outline { display: none; }
   }
   </style>
 </head>
-
 <body>
 
-<!-- ── RIBBON ── -->
-<div class="ribbon" aria-hidden="true">
-  <div class="ribbon-row wrap">
-    <div class="ribbon-item">&#128188; Everyday Legal Help</div>
-    <div class="ribbon-item"><span class="rb-dot"></span>&#128737;&#65039; Protect What Matters</div>
-    <div class="ribbon-item"><span class="rb-dot"></span>&#128522; Worry Less. Live More.</div>
-  </div>
+<!-- TOP BAR -->
+<div class="topbar">
+  Available in all 50 states &amp; Canada &mdash;
+  <a href="https://alapice.legalshieldassociate.com/" target="_blank" rel="noopener">View Plans &amp; Pricing &rarr;</a>
 </div>
 
-<!-- ── NAV ── -->
+<!-- NAV -->
 <nav class="nav" aria-label="Main navigation">
   <div class="wrap nav-inner">
-    <span class="nav-brand">Aysha Empowers</span>
-    <div class="nav-right">
-      <a class="nav-ig" href="https://www.instagram.com/ayshaempowers" target="_blank" rel="noopener" aria-label="Follow Aysha on Instagram">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+    <a href="#" class="nav-brand" aria-label="Aysha Empowers home">
+      <div class="nav-brand-dot">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
         </svg>
-      </a>
-      <a class="btn btn-grad" href="https://alapice.legalshieldassociate.com/" target="_blank" rel="noopener">
-        See Plans
-      </a>
+      </div>
+      <div>
+        <div class="nav-brand-name">Aysha Empowers</div>
+        <div class="nav-brand-sub">LegalShield Associate</div>
+      </div>
+    </a>
+    <div class="nav-right">
+      <a class="btn btn-outline" href="#contact" style="padding:10px 20px; font-size:.82rem;">Talk to Aysha</a>
+      <a class="btn btn-purple" href="https://alapice.legalshieldassociate.com/" target="_blank" rel="noopener" style="padding:10px 20px; font-size:.82rem;">See Plans</a>
     </div>
   </div>
 </nav>
 
-<!-- ── HERO ── -->
+<!-- HERO -->
 <section class="hero" aria-labelledby="hero-heading">
   <div class="wrap">
     <div class="hero-grid">
       <div>
-        <div class="badge">
-          <span class="badge-dot"></span>
-          Available in all 50 states &amp; Canada
+        <div class="hero-tag">
+          <span class="hero-tag-dot"></span>
+          Trusted LegalShield Associate
         </div>
-        <h1 class="headline" id="hero-heading">
-          EVERYDAY LEGAL<br>
-          <span class="headline-em">PROTECTION.</span>
+        <h1 class="hero-headline" id="hero-heading">
+          Legal Protection<br>
+          Your Family<br>
+          <em>Actually Deserves</em>
         </h1>
         <p class="hero-sub">
-          I help everyday hardworking people and small businesses protect their rights,
-          their families, and their future&mdash;with affordable legal coverage when
-          life feels overwhelming.
+          Everyday legal help for real life — traffic tickets, contracts, wills, landlord disputes, and more.
+          One simple monthly price. No hourly fees. No surprises.
         </p>
         <div class="hero-actions">
-          <a class="btn btn-grad" href="https://alapice.legalshieldassociate.com/" target="_blank" rel="noopener">
-            Find Your Plan
-          </a>
-          <button class="btn btn-ghost" data-open-modal>Talk to Aysha</button>
+          <a class="btn btn-gold" href="#contact">Get Protected Today</a>
+          <a class="btn btn-outline" href="https://alapice.legalshieldassociate.com/" target="_blank" rel="noopener">View Plans &rarr;</a>
+        </div>
+        <div class="hero-trust">
+          <span class="hero-trust-icon">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          &nbsp;Serving families &amp; small businesses across all 50 states
         </div>
       </div>
-      <div class="hero-img-wrap">
-        <div class="hero-img-glow" aria-hidden="true"></div>
-        <img src="images/hero3.png.webp" alt="Aysha Lapice &mdash; your legal protection guide" loading="eager">
+      <div class="photo-card">
+        <img class="photo-card-img" src="images/hero3.png.webp" alt="Aysha Powers — LegalShield Associate" loading="eager">
+        <div class="photo-card-badge">
+          <div class="pcb-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <div>
+            <div class="pcb-label">Coverage available in</div>
+            <div class="pcb-value">All 50 States + Canada</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── STATS ── -->
+<!-- STATS -->
 <div class="stats" aria-hidden="true">
   <div class="wrap">
     <div class="stats-grid">
-      <div class="stat">
-        <div class="stat-n">50+</div>
-        <div class="stat-l">States &amp; Canada</div>
-      </div>
-      <div class="stat">
-        <div class="stat-n">$0</div>
-        <div class="stat-l">Hourly Legal Fees</div>
-      </div>
-      <div class="stat">
-        <div class="stat-n">1</div>
-        <div class="stat-l">Simple Monthly Price</div>
-      </div>
+      <div class="stat"><div class="stat-n">50+</div><div class="stat-l">States &amp; Canada</div></div>
+      <div class="stat"><div class="stat-n">$0</div><div class="stat-l">Attorney Hourly Fees</div></div>
+      <div class="stat"><div class="stat-n">40+</div><div class="stat-l">Years Protecting Families</div></div>
     </div>
   </div>
 </div>
 
-<!-- ── WHITE SECTION ── -->
-<section class="section-white pad" aria-labelledby="why-heading">
+<!-- BENEFITS -->
+<section class="benefits pad" aria-labelledby="benefits-heading">
   <div class="wrap">
-    <h2 id="why-heading">LIFE DOESN&rsquo;T WAIT.<br><em>NEITHER SHOULD YOU.</em></h2>
-
-    <div style="display:flex; flex-direction:column; gap:14px; margin-top:22px;">
-      <p class="lead">Ever worry about getting pulled over, served with legal papers, or handed a contract you don&rsquo;t fully understand?</p>
-      <p class="lead">Legal problems don&rsquo;t care how busy your life is. They can turn a normal week upside down in an instant.</p>
-      <p class="lead">With a LegalShield plan, you gain access to a dedicated law firm in all <strong>50 states and Canada</strong> for your family or small business. From contract review and traffic tickets to wills, custody questions, and employment law&mdash;expert guidance at one predictable monthly price.</p>
+    <div class="center">
+      <span class="section-tag">What&rsquo;s Covered</span>
+      <h2 class="section-title" id="benefits-heading">Everything Life Can Throw at You</h2>
+      <p class="section-sub">One plan. One monthly price. Access to a dedicated law firm for the legal situations that actually happen in everyday life.</p>
     </div>
-
     <div class="benefits-grid">
-      <div class="benefit">
+      <div class="benefit-card">
         <div class="b-icon">&#128221;</div>
         <div class="b-title">Document &amp; Contract Review</div>
-        <div class="b-desc">Have an attorney review any contract or legal document before you sign.</div>
+        <div class="b-desc">Have an attorney review any contract or legal document before you sign — leases, job offers, agreements.</div>
       </div>
-      <div class="benefit">
+      <div class="benefit-card">
         <div class="b-icon">&#128081;</div>
         <div class="b-title">Wills &amp; Estate Planning</div>
-        <div class="b-desc">Establish wills, living wills, and powers of attorney with professional guidance.</div>
+        <div class="b-desc">Establish wills, living wills, and powers of attorney so your family is protected no matter what.</div>
       </div>
-      <div class="benefit">
+      <div class="benefit-card">
         <div class="b-icon">&#9878;&#65039;</div>
         <div class="b-title">Traffic &amp; Legal Defense</div>
-        <div class="b-desc">Attorney representation for traffic violations and covered legal matters.</div>
+        <div class="b-desc">Attorney representation for traffic violations and covered legal matters — don&rsquo;t face it alone.</div>
       </div>
-      <div class="benefit">
+      <div class="benefit-card">
         <div class="b-icon">&#127968;</div>
         <div class="b-title">Family &amp; Housing</div>
-        <div class="b-desc">Help with landlord disputes, custody questions, and family law matters.</div>
+        <div class="b-desc">Help with landlord disputes, custody questions, and family law matters when things get complicated.</div>
       </div>
-      <div class="benefit">
+      <div class="benefit-card">
         <div class="b-icon">&#128188;</div>
         <div class="b-title">Small Business Support</div>
-        <div class="b-desc">Legal coverage tailored to small business owners and the self-employed.</div>
+        <div class="b-desc">Legal coverage built for small business owners and the self-employed — protect what you&rsquo;ve built.</div>
       </div>
-      <div class="benefit">
+      <div class="benefit-card">
         <div class="b-icon">&#128222;</div>
         <div class="b-title">Unlimited Consultations</div>
-        <div class="b-desc">Call your provider law firm anytime for covered legal questions&mdash;no meter running.</div>
+        <div class="b-desc">Call your provider law firm anytime for covered legal questions. No meter running. No hesitation.</div>
       </div>
-    </div>
-
-    <div style="text-align:center; margin-top:36px;">
-      <a class="btn btn-grad" href="https://alapice.legalshieldassociate.com/" target="_blank" rel="noopener">
-        View Plans &amp; Pricing &#8594;
-      </a>
     </div>
   </div>
 </section>
 
-<!-- ── PANEL ── -->
-<section class="panel pad" aria-labelledby="cta-heading">
+<!-- ABOUT -->
+<section class="pad" aria-labelledby="about-heading">
   <div class="wrap">
-    <div class="panel-grid">
+    <div class="about-grid">
       <div>
-        <h2 id="cta-heading">Connect with Me to Protect Your Family or Business</h2>
-        <p class="panel-sub">
-          Just a conversation&mdash;let&rsquo;s understand your needs and find the right plan for you.
-          Your peace of mind, so you move through life with more confidence and less fear of &ldquo;what if.&rdquo;
-        </p>
-        <button class="btn btn-white" data-open-modal>I&rsquo;m Ready to Talk</button>
+        <span class="section-tag">About Aysha</span>
+        <h2 class="section-title" id="about-heading">A Real Person in Your Corner</h2>
+        <p class="section-sub">I&rsquo;m not a call center. When you reach out, you get me — someone who genuinely cares about helping your family and business stay protected.</p>
+        <div class="about-points">
+          <div class="about-point">
+            <div class="ap-dot">&#10003;</div>
+            <div class="ap-text"><strong>Personal guidance</strong> — I walk you through the right plan for your specific situation, not a generic one.</div>
+          </div>
+          <div class="about-point">
+            <div class="ap-dot">&#10003;</div>
+            <div class="ap-text"><strong>Always available</strong> — Questions before or after you sign up? I&rsquo;m here for the long run.</div>
+          </div>
+          <div class="about-point">
+            <div class="ap-dot">&#10003;</div>
+            <div class="ap-text"><strong>Community first</strong> — I believe everyone deserves access to legal help, not just those who can afford a lawyer.</div>
+          </div>
+        </div>
+        <div style="margin-top:32px;">
+          <a class="btn btn-purple" href="#contact">Talk to Aysha</a>
+        </div>
       </div>
-      <div class="check-box">
-        <h3>Life Happens. Be Covered.</h3>
-        <div class="check-item">
-          <div class="ci-dot">&#10003;</div>
-          <div class="ci-text">Get answers to legal questions without worrying about expensive hourly fees.</div>
-        </div>
-        <div class="check-item">
-          <div class="ci-dot">&#10003;</div>
-          <div class="ci-text">Unlimited personal consultations with a dedicated provider law firm for covered issues.</div>
-        </div>
-        <div class="check-item">
-          <div class="ci-dot">&#10003;</div>
-          <div class="ci-text">Assistance with establishing wills, living wills, and powers of attorney.</div>
+      <div class="about-img-wrap">
+        <img class="about-img" src="images/hero3.png.webp" alt="Aysha Powers" loading="lazy">
+        <div class="about-img-accent">
+          <div class="aia-n">40+</div>
+          <div class="aia-l">Years of Legal Coverage</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── FOOTER ── -->
+
+<!-- ════════════════════════════════════════════════════════
+     VIDEO SECTION — Ready to activate when Aysha's video is ready
+
+     HOW TO ACTIVATE:
+     1. Record a 60-90 second intro video (who you are, what you do, why LegalShield)
+     2. Export as MP4 — name it "aysha-intro.mp4"
+     3. Create a folder called "videos" inside the business-site folder
+     4. Drop the MP4 file into that videos folder
+     5. Delete the opening HTML comment tag ( the line with the arrows below) and the
+        closing comment tag at the end of this block
+     6. Run your 3 git commands to push it live — done!
+
+     The browser automatically provides: play, pause, mute, fullscreen & progress bar.
+     The poster shows Aysha's photo as a thumbnail before visitors press play.
+════════════════════════════════════════════════════════ -->
+
+<!--
+<section class="pad" style="background: var(--bg-soft);" aria-labelledby="video-heading">
+  <div class="wrap">
+    <div class="center" style="margin-bottom: 40px;">
+      <span class="section-tag">Meet Aysha</span>
+      <h2 class="section-title" id="video-heading">Hear It Straight From Her</h2>
+      <p class="section-sub">A quick introduction — who she is, why she does this, and how she can help you.</p>
+    </div>
+    <div style="max-width: 720px; margin: 0 auto; border-radius: var(--r-lg); overflow: hidden; box-shadow: var(--shadow-lg);">
+      <video controls poster="images/hero3.png.webp" style="width: 100%; display: block; background: #000;">
+        <source src="videos/aysha-intro.mp4" type="video/mp4">
+        Your browser doesn't support video playback.
+      </video>
+    </div>
+  </div>
+</section>
+-->
+
+
+<!-- CONTACT FORM -->
+<section class="form-section pad" id="contact" aria-labelledby="form-heading">
+  <div class="wrap">
+    <div class="form-grid">
+      <div class="form-left">
+        <span class="section-tag">Get in Touch</span>
+        <h2 class="section-title" id="form-heading">One Conversation Can Protect Everything</h2>
+        <p class="section-sub">No pressure. Just a quick conversation to find the right plan for your family or business. I&rsquo;ll reach out within 24 hours.</p>
+        <div class="form-perks">
+          <div class="form-perk">
+            <div class="fp-check">&#10003;</div>
+            <div class="fp-text">Free consultation — no obligation, no sales pressure</div>
+          </div>
+          <div class="form-perk">
+            <div class="fp-check">&#10003;</div>
+            <div class="fp-text">Plans starting as low as a few dollars a day</div>
+          </div>
+          <div class="form-perk">
+            <div class="fp-check">&#10003;</div>
+            <div class="fp-text">Coverage active fast — protect your family right away</div>
+          </div>
+          <div class="form-perk">
+            <div class="fp-check">&#10003;</div>
+            <div class="fp-text">Available across all 50 states and Canada</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-card">
+        <div class="form-card-title">Let&rsquo;s Talk</div>
+        <div class="form-card-sub">Fill this out and Aysha will be in touch within 24 hours.</div>
+        <form id="leadForm" name="lead" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="lead">
+          <p style="display:none"><label>Don&rsquo;t fill this out: <input name="bot-field"></label></p>
+          <div class="f-row">
+            <label class="f-lbl" for="fname">Full Name *</label>
+            <input class="f-in" id="fname" name="name" type="text" placeholder="First and Last Name" required autocomplete="name">
+          </div>
+          <div class="f-row">
+            <label class="f-lbl" for="femail">Email Address *</label>
+            <input class="f-in" id="femail" name="email" type="email" placeholder="you@example.com" required autocomplete="email">
+          </div>
+          <div class="f-row">
+            <label class="f-lbl" for="fphone">Phone Number *</label>
+            <input class="f-in" id="fphone" name="phone" type="tel" placeholder="(555) 000-0000" required autocomplete="tel">
+          </div>
+          <div class="f-row">
+            <label class="f-lbl" for="fmessage">What are you looking to protect? (optional)</label>
+            <textarea class="f-in" id="fmessage" name="message" placeholder="e.g. my family, my small business, both..."></textarea>
+          </div>
+          <label class="consent">
+            <input type="checkbox" name="mkt">
+            <span class="consent-txt">I consent to receive follow-up messages from Aysha Empowers about LegalShield plans. Msg &amp; data rates may apply. Reply STOP to opt out.</span>
+          </label>
+          <p class="f-legal">By submitting you agree to our <a href="terms.html" target="_blank" rel="noopener">Terms &amp; Conditions</a> and <a href="privacy.html" target="_blank" rel="noopener">Privacy Policy</a>.</p>
+          <button class="btn-submit" type="submit">Send Message &rarr;</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner" aria-labelledby="cta-heading">
+  <div class="wrap">
+    <h2 id="cta-heading">Ready to Stop Worrying About Legal Problems?</h2>
+    <p>LegalShield gives you a dedicated law firm in your corner — for less than you&rsquo;d think. Let Aysha show you how easy it is to get covered.</p>
+    <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+      <a class="btn btn-white" href="#contact">Talk to Aysha</a>
+      <a class="btn" href="https://alapice.legalshieldassociate.com/" target="_blank" rel="noopener"
+         style="background:rgba(255,255,255,.15); color:#fff; border:2px solid rgba(255,255,255,.4);">View Plans &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
 <footer>
   <div class="wrap">
-    &copy; <span id="yr"></span> Aysha Lapice
-    &bull; <a href="terms.html" target="_blank" rel="noopener">Terms &amp; Conditions</a>
-    &bull; <a href="privacy.html" target="_blank" rel="noopener">Privacy Policy</a>
-    &bull; <a href="https://www.instagram.com/ayshaempowers" target="_blank" rel="noopener">&#64;ayshaempowers</a>
+    <div class="footer-inner">
+      <div class="footer-links">
+        <a href="terms.html" target="_blank" rel="noopener">Terms &amp; Conditions</a>
+        <a href="privacy.html" target="_blank" rel="noopener">Privacy Policy</a>
+        <a href="https://www.instagram.com/ayshaempowers" target="_blank" rel="noopener">&#64;ayshaempowers</a>
+        <a href="https://alapice.legalshieldassociate.com/" target="_blank" rel="noopener">View Plans</a>
+      </div>
+      <div>&copy; <span id="yr"></span> Aysha Empowers &mdash; LegalShield Associate</div>
+    </div>
   </div>
 </footer>
 
-<!-- ── MODAL ── -->
-<div class="modal-overlay" id="leadModal" role="dialog" aria-modal="true" aria-labelledby="mTitle" aria-hidden="true">
-  <div class="modal">
-    <button class="modal-x" aria-label="Close dialog" data-close>&#10005;</button>
-    <div class="modal-hd">
-      <h3 id="mTitle">ONE STEP AWAY&hellip;</h3>
-      <p>You&rsquo;re one conversation away from discovering how to protect you, your family, your business, and your future.</p>
-    </div>
-    <div class="modal-body">
-      <form id="leadForm" name="lead" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-        <input type="hidden" name="form-name" value="lead">
-        <p style="display:none"><label>Don&rsquo;t fill this out: <input name="bot-field"></label></p>
-
-        <div class="f-row">
-          <label class="f-lbl" for="fname">Full Name *</label>
-          <input class="f-in" id="fname" name="name" type="text" placeholder="First and Last Name" required autocomplete="name">
-        </div>
-
-        <div class="f-row">
-          <label class="f-lbl" for="fphone">Phone *</label>
-          <input class="f-in" id="fphone" name="phone" type="tel" required autocomplete="tel">
-          <input type="hidden" id="fphone_e164" name="phone_e164">
-          <div class="ph-err" id="phoneError">Please enter a valid phone number.</div>
-        </div>
-
-        <div class="f-row">
-          <label class="f-lbl" for="femail">Email *</label>
-          <input class="f-in" id="femail" name="email" type="email" placeholder="you@example.com" required autocomplete="email">
-        </div>
-
-        <label class="consent">
-          <input type="checkbox" name="mkt">
-          <span class="consent-txt">
-            I consent to receive legal education and follow-up text messages from Aysha Empowers.
-            Msg &amp; data rates may apply. Reply STOP to opt out.
-          </span>
-        </label>
-
-        <p class="f-legal">
-          By submitting you agree to our
-          <a href="terms.html" target="_blank" rel="noopener">Terms &amp; Conditions</a>
-          and <a href="privacy.html" target="_blank" rel="noopener">Privacy Policy</a>.
-        </p>
-
-        <button class="btn-sub" type="submit">Send My Info &#8594;</button>
-      </form>
-    </div>
-  </div>
-</div>
-
-<!-- Static form for Netlify build-time detection -->
+<!-- Netlify form detection (hidden) -->
 <form name="lead" netlify netlify-honeypot="bot-field" hidden>
   <input type="text" name="name">
   <input type="tel" name="phone">
   <input type="email" name="email">
+  <textarea name="message"></textarea>
 </form>
 
-<!-- ── SCRIPTS ── -->
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
-</script>
 
-<script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.5.6/build/js/intlTelInput.min.js"></script>
-
-<script>
-(function () {
-  'use strict';
-
-  /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-     SITE CONFIG — change these values for each new associate
-  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
-  var CFG = {
-    siteUrl:      'https://ayshaempowers.com/',
-    suppressKey:  'ae_modal_sup',
-    suppressDays: 7,      /* days before modal shows again after dismiss */
-    delayMs:      12000,  /* auto-open after 12 s of reading              */
-    scrollPct:    55,     /* or after scrolling 55% of the page           */
-  };
-
-  /* ── intl-tel-input ── */
-  var phoneEl   = document.getElementById('fphone');
-  var phoneErr  = document.getElementById('phoneError');
-  var phoneE164 = document.getElementById('fphone_e164');
-
-  var iti = window.intlTelInput(phoneEl, {
-    initialCountry:     'us',
-    preferredCountries: ['us', 'ca'],
-    separateDialCode:   true,
-    nationalMode:       true,
-    formatOnDisplay:    true,
-    autoPlaceholder:    'aggressive',
-    utilsScript: 'https://cdn.jsdelivr.net/npm/intl-tel-input@18.5.6/build/js/utils.js',
-  });
-  iti.promise.then(function () {
-    var ph = iti.getNumberPlaceholder();
-    if (ph) phoneEl.placeholder = ph;
-  });
-
-  /* ── Modal state ── */
-  var overlay = document.getElementById('leadModal');
-  var fired   = false;
-
-  function openModal(manual) {
-    if (!manual) {
-      /* Auto-open: respect suppression and fired flag */
-      if (fired) return;
-      var now = Date.now();
-      var sup = Number(localStorage.getItem(CFG.suppressKey) || 0);
-      if (now < sup) return;
-    }
-    fired = true;
-    overlay.classList.add('open');
-    overlay.setAttribute('aria-hidden', 'false');
-    setTimeout(function () {
-      var el = document.getElementById('fname');
-      if (el) el.focus();
-    }, 100);
-  }
-
-  function closeModal() {
-    overlay.classList.remove('open');
-    overlay.setAttribute('aria-hidden', 'true');
-    localStorage.setItem(CFG.suppressKey, String(Date.now() + CFG.suppressDays * 864e5));
-  }
-
-  /* Manual open — always works, even if auto-popup was already dismissed */
-  document.querySelectorAll('[data-open-modal]').forEach(function (el) {
-    el.addEventListener('click', function () {
-      openModal(true);
-    });
-  });
-
-  /* Close: button, backdrop click, Escape key */
-  document.querySelectorAll('[data-close]').forEach(function (el) {
-    el.addEventListener('click', closeModal);
-  });
-  overlay.addEventListener('click', function (e) {
-    if (e.target === overlay) closeModal();
-  });
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && overlay.classList.contains('open')) closeModal();
-  });
-
-  /* Auto-open: after delay */
-  var autoTimer = setTimeout(function () { openModal(false); }, CFG.delayMs);
-
-  /* Auto-open: on scroll */
-  function onScroll() {
-    var pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
-    if (pct >= CFG.scrollPct) {
-      clearTimeout(autoTimer);
-      openModal(false);
-      window.removeEventListener('scroll', onScroll);
-    }
-  }
-  window.addEventListener('scroll', onScroll, { passive: true });
-
-  /* ── Form submission ── */
-  document.getElementById('leadForm').addEventListener('submit', async function (e) {
+  document.getElementById('leadForm').addEventListener('submit', async function(e) {
     e.preventDefault();
-
-    phoneErr.style.display = 'none';
-    if (phoneEl.value.trim() && !iti.isValidNumber()) {
-      phoneErr.style.display = 'block';
-      phoneEl.focus();
-      return;
-    }
-    phoneE164.value = iti.getNumber();
-
     var fd = new FormData(this);
-    if (!fd.get('form-name')) fd.append('form-name', 'lead');
     var params = new URLSearchParams();
     for (var pair of fd.entries()) params.append(pair[0], pair[1]);
-
     try {
       await fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: params.toString(),
+        body: params.toString()
       });
-
-      this.parentElement.innerHTML =
-        '<div style="text-align:center;padding:32px 16px 28px;">' +
-          '<div style="font-size:2.4rem;margin-bottom:10px;">&#127881;</div>' +
-          '<h3 style="margin:0 0 8px;color:#065f46;font-size:1.15rem;">Message Sent!</h3>' +
-          '<p style="color:#374151;margin:0 0 14px;">Returning in <strong id="cd">5</strong>&hellip;</p>' +
-          '<p style="font-size:.88rem;color:#6b7280;">Thanks! I\'ll reach out with your LegalShield info and next steps shortly.</p>' +
+      this.closest('.form-card').innerHTML =
+        '<div class="form-success">' +
+        '<div class="form-success-icon">&#127881;</div>' +
+        '<h3>Message Sent!</h3>' +
+        '<p>Thanks for reaching out! Aysha will be in touch within 24 hours to talk through your options.</p>' +
         '</div>';
-
-      var secs = 5;
-      var tick = setInterval(function () {
-        var el = document.getElementById('cd');
-        if (el) el.textContent = --secs;
-        if (secs <= 0) { clearInterval(tick); window.location.href = CFG.siteUrl; }
-      }, 1000);
-
-    } catch (err) {
+    } catch(err) {
       alert('Something went wrong. Please try again.');
-      console.error(err);
     }
   });
-})();
 </script>
 
 </body>
